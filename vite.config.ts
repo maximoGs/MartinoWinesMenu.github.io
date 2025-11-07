@@ -7,7 +7,7 @@ export default defineConfig(({ mode }) => {
     const isProd = mode === 'production';
 
     return {
-      base: isProd ? '/MysterikProds.github.io/' : '/',
+      base: isProd ? '/ChanoSmovir.github.io/' : '/',
       server: {
         port: 3000,
         host: '0.0.0.0',
