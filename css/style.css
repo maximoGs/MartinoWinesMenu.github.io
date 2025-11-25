@@ -40,44 +40,6 @@ body {
 .container {
     width: 100%;
     max-width: 1200px;
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    position: relative;
-    z-index: 1;
-}
-
-/* Hero Section */
-.hero {
-    text-align: center;
-    margin-bottom: 4rem;
-    animation: fadeIn 1.5s ease-out;
-}
-
-.hero h1 {
-    font-size: 4rem;
-    font-weight: 700;
-    letter-spacing: 4px;
-    margin-bottom: 1rem;
-    position: relative;
-    text-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
-}
-
-.glitch {
-    position: relative;
-}
-
-.glitch::before,
-.glitch::after {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
     background: var(--bg-color);
 }
 
@@ -97,295 +59,53 @@ body {
 
 .subtitle {
     font-size: 1.2rem;
-    font-weight: 300;
-    letter-spacing: 2px;
-    color: rgba(255, 255, 255, 0.7);
-    text-transform: uppercase;
-}
 
-/* Portals (Social Links) */
-.portals {
-    display: flex;
-    gap: 2rem;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-bottom: 4rem;
-}
-
-.portal-link {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none;
-    color: var(--text-color);
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    group: portal;
-}
-
-.portal-icon {
-    width: 80px;
-    height: 80px;
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1rem;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    backdrop-filter: blur(5px);
-}
-
-.portal-icon svg {
-    width: 32px;
-    height: 32px;
-    stroke: var(--text-color);
-    transition: all 0.3s ease;
-}
-
-.portal-label {
-    font-size: 0.8rem;
-    letter-spacing: 1px;
-    opacity: 0;
-    transform: translateY(10px);
-    transition: all 0.3s ease;
-    font-weight: 500;
-}
-
-/* Hover Effects */
-.portal-link:hover {
-    transform: translateY(-5px);
-}
-
-.portal-link:hover .portal-icon {
-    border-color: var(--neon-purple);
-    box-shadow: 0 0 20px rgba(188, 19, 254, 0.4), inset 0 0 10px rgba(188, 19, 254, 0.2);
-    background: rgba(188, 19, 254, 0.1);
-}
-
-.portal-link:hover .portal-icon svg {
-    stroke: var(--neon-purple);
-    transform: scale(1.1);
-}
-
-.portal-link:hover .portal-label {
-    opacity: 1;
-    transform: translateY(0);
-    color: var(--neon-purple);
-    text-shadow: 0 0 5px rgba(188, 19, 254, 0.5);
-}
-
-/* Footer */
-.footer {
-    position: absolute;
-    bottom: 2rem;
-    width: 100%;
-    text-align: center;
-}
-
-.credits {
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.4);
-    text-decoration: none;
-    transition: color 0.3s ease;
-    letter-spacing: 1px;
-}
-
-.credits:hover {
-    color: var(--accent-violet);
-}
-
-/* Animations */
-@keyframes fadeIn {
-    from {
+    .portal-label {
+        font-size: 0.8rem;
+        letter-spacing: 1px;
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(10px);
+        transition: all 0.3s ease;
+        font-weight: 500;
     }
 
-    to {
+    /* Hover Effects */
+    .portal-link:hover {
+        transform: translateY(-5px);
+    }
+
+    .portal-link:hover .portal-icon {
+        border-color: var(--neon-purple);
+        box-shadow: 0 0 20px rgba(188, 19, 254, 0.4), inset 0 0 10px rgba(188, 19, 254, 0.2);
+        background: rgba(188, 19, 254, 0.1);
+    }
+
+    .portal-link:hover .portal-icon svg {
+        stroke: var(--neon-purple);
+        transform: scale(1.1);
+    }
+
+    .portal-link:hover .portal-label {
         opacity: 1;
         transform: translateY(0);
-    }
-}
-
-@keyframes glitch-anim {
-    0% {
-        clip: rect(30px, 9999px, 10px, 0);
+        color: var(--neon-purple);
+        text-shadow: 0 0 5px rgba(188, 19, 254, 0.5);
     }
 
-    5% {
-        clip: rect(80px, 9999px, 90px, 0);
+    /* Footer */
+    .footer {
+        position: absolute;
+        bottom: 2rem;
+        width: 100%;
+        text-align: center;
     }
 
-    10% {
-        clip: rect(30px, 9999px, 10px, 0);
-    }
-
-    15% {
-        clip: rect(90px, 9999px, 100px, 0);
-    }
-
-    20% {
-        clip: rect(10px, 9999px, 80px, 0);
-    }
-
-    25% {
-        clip: rect(50px, 9999px, 20px, 0);
-    }
-
-    30% {
-        clip: rect(70px, 9999px, 60px, 0);
-    }
-
-    35% {
-        clip: rect(30px, 9999px, 20px, 0);
-    }
-
-    40% {
-        clip: rect(20px, 9999px, 10px, 0);
-    }
-
-    45% {
-        clip: rect(50px, 9999px, 90px, 0);
-    }
-
-    50% {
-        clip: rect(10px, 9999px, 40px, 0);
-    }
-
-    55% {
-        clip: rect(90px, 9999px, 10px, 0);
-    }
-
-    60% {
-        clip: rect(60px, 9999px, 70px, 0);
-    }
-
-    65% {
-        clip: rect(30px, 9999px, 20px, 0);
-    }
-
-    70% {
-        clip: rect(80px, 9999px, 50px, 0);
-    }
-
-    75% {
-        clip: rect(10px, 9999px, 90px, 0);
-    }
-
-    80% {
-        clip: rect(50px, 9999px, 20px, 0);
-    }
-
-    85% {
-        clip: rect(40px, 9999px, 60px, 0);
-    }
-
-    90% {
-        clip: rect(20px, 9999px, 30px, 0);
-    }
-
-    95% {
-        clip: rect(70px, 9999px, 10px, 0);
-    }
-
-    100% {
-        clip: rect(10px, 9999px, 50px, 0);
-    }
-}
-
-@keyframes glitch-anim2 {
-    0% {
-        clip: rect(10px, 9999px, 90px, 0);
-    }
-
-    5% {
-        clip: rect(30px, 9999px, 10px, 0);
-    }
-
-    10% {
-        clip: rect(80px, 9999px, 50px, 0);
-    }
-
-    15% {
-        clip: rect(40px, 9999px, 10px, 0);
-    }
-
-    20% {
-        clip: rect(90px, 9999px, 20px, 0);
-    }
-
-    25% {
-        clip: rect(20px, 9999px, 70px, 0);
-    }
-
-    30% {
-        clip: rect(60px, 9999px, 30px, 0);
-    }
-
-    35% {
-        clip: rect(10px, 9999px, 90px, 0);
-    }
-
-    40% {
-        clip: rect(50px, 9999px, 10px, 0);
-    }
-
-    45% {
-        clip: rect(20px, 9999px, 40px, 0);
-    }
-
-    50% {
-        clip: rect(80px, 9999px, 20px, 0);
-    }
-
-    55% {
-        clip: rect(10px, 9999px, 60px, 0);
-    }
-
-    60% {
-        clip: rect(50px, 9999px, 10px, 0);
-    }
-
-    65% {
-        clip: rect(90px, 9999px, 30px, 0);
-    }
-
-    70% {
-        clip: rect(30px, 9999px, 80px, 0);
-    }
-
-    75% {
-        clip: rect(70px, 9999px, 20px, 0);
-    }
-
-    80% {
-        clip: rect(20px, 9999px, 50px, 0);
-    }
-
-    85% {
-        clip: rect(60px, 9999px, 10px, 0);
-    }
-
-    90% {
-        clip: rect(10px, 9999px, 70px, 0);
-    }
-
-    95% {
-        clip: rect(50px, 9999px, 30px, 0);
-    }
-
-    100% {
-        clip: rect(90px, 9999px, 10px, 0);
-    }
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: 2.5rem;
+    .credits {
+        font-size: 0.8rem;
+        color: rgba(255, 255, 255, 0.4);
+        text-decoration: none;
+        transition: color 0.3s ease;
+        letter-spacing: 1px;
     }
 
     .credits:hover {
@@ -577,272 +297,467 @@ body {
         }
     }
 
-    /* Sections General */
-    .section {
-        width: 100%;
-        max-width: 800px;
-        /* Reduced max-width for better readability */
-        margin: 0 auto 8rem auto;
-        /* Centered and more spacing */
-        opacity: 0;
-        transform: translateY(30px);
-        transition: all 0.8s ease-out;
-        padding: 0 1rem;
-    }
-
-    .section.visible {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    .section-title {
-        font-size: 3rem;
-        /* Larger title */
-        font-weight: 700;
-        margin-bottom: 3rem;
-        text-align: center;
-        letter-spacing: 5px;
-        color: var(--text-color);
-        text-shadow: 0 0 15px rgba(138, 43, 226, 0.5);
-        position: relative;
-        text-transform: uppercase;
-    }
-
-    .section-title::after {
-        content: '';
-        position: absolute;
-        bottom: -15px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 60px;
-        height: 3px;
-        background: var(--accent-violet);
-        box-shadow: 0 0 10px var(--accent-violet);
-    }
-
-    /* About Section */
-    .about-content {
-        text-align: center;
-        font-size: 1.2rem;
-        line-height: 1.8;
-        color: rgba(255, 255, 255, 0.9);
-        background: rgba(5, 5, 5, 0.6);
-        /* Darker background */
-        padding: 3rem;
-        border-radius: 20px;
-        border: 1px solid var(--glass-border);
-        backdrop-filter: blur(10px);
-        box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
-    }
-
-    .about-content p {
-        margin-bottom: 1.5rem;
-    }
-
-    .highlight {
-        color: var(--neon-purple);
-        font-weight: 600;
-        text-shadow: 0 0 8px rgba(188, 19, 254, 0.6);
-    }
-
-    /* Gallery Section */
-    .gallery-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 2rem;
-    }
-
-    .gallery-item {
-        aspect-ratio: 1;
-        overflow: hidden;
-        border-radius: 15px;
-        border: 1px solid var(--glass-border);
-        position: relative;
-        cursor: pointer;
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        background: #000;
-    }
-
-    .gallery-placeholder {
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(135deg, #1a1a1a 0%, #050505 100%);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: transform 0.5s ease;
-    }
-
-    .gallery-placeholder::before {
-        content: '';
-        width: 50px;
-        height: 50px;
-        border: 2px solid rgba(255, 255, 255, 0.2);
-        border-radius: 50%;
-        transition: all 0.3s ease;
-    }
-
-    .gallery-item:hover {
-        transform: translateY(-10px) scale(1.02);
-        box-shadow: 0 10px 30px rgba(138, 43, 226, 0.3);
-        border-color: var(--accent-violet);
-    }
-
-    .gallery-item:hover .gallery-placeholder::before {
-        left: 0;
-        width: 100%;
-        background: rgba(5, 5, 5, 0.95);
-        backdrop-filter: blur(10px);
-        border-top: 1px solid var(--glass-border);
-        padding: 1rem 2rem;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        z-index: 100;
-        transform: translateY(100%);
-        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .audio-player.active {
-        transform: translateY(0);
-    }
-
-    .track-info {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-    }
-
-    .track-art {
-        width: 50px;
-        height: 50px;
-        background: var(--accent-violet);
-        border-radius: 5px;
-    }
-
-    .track-details {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .track-name {
-        font-weight: 700;
-        font-size: 0.9rem;
-        color: #fff;
-    }
-
-    .track-artist {
-        font-size: 0.8rem;
-        color: rgba(255, 255, 255, 0.6);
-    }
-
-    .player-controls {
-        display: flex;
-        align-items: center;
-        gap: 1.5rem;
-    }
-
-    .play-btn {
-        background: none;
-        border: none;
-        cursor: pointer;
-        color: #fff;
-        transition: color 0.3s ease;
-    }
-
-    .play-btn:hover {
-        color: var(--accent-violet);
-    }
-
-    .play-btn svg {
-        width: 32px;
-        height: 32px;
-        fill: currentColor;
-    }
-
-    /* Lightbox */
-    .lightbox {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.95);
-        z-index: 1000;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.3s ease;
-    }
-
-    .lightbox.active {
-        opacity: 1;
-        pointer-events: all;
-    }
-
-    .lightbox-content {
-        max-width: 90%;
-        max-height: 90vh;
-        border: 2px solid var(--accent-violet);
-        box-shadow: 0 0 50px rgba(138, 43, 226, 0.3);
-        transform: scale(0.9);
-        transition: transform 0.3s ease;
-    }
-
-    .lightbox.active .lightbox-content {
-        transform: scale(1);
-    }
-
-    .lightbox-close {
-        position: absolute;
-        top: 2rem;
-        right: 2rem;
-        background: none;
-        border: none;
-        color: #fff;
-        font-size: 2rem;
-        cursor: pointer;
-        transition: color 0.3s ease;
-    }
-
-    .lightbox-close:hover {
-        color: var(--accent-violet);
-    }
-
     /* Responsive */
     @media (max-width: 768px) {
         .hero h1 {
             font-size: 2.5rem;
         }
 
-        .portals {
-            gap: 1.5rem;
+        .credits:hover {
+            color: var(--accent-violet);
         }
 
-        .portal-icon {
-            width: 60px;
-            height: 60px;
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes glitch-anim {
+            0% {
+                clip: rect(30px, 9999px, 10px, 0);
+            }
+
+            5% {
+                clip: rect(80px, 9999px, 90px, 0);
+            }
+
+            10% {
+                clip: rect(30px, 9999px, 10px, 0);
+            }
+
+            15% {
+                clip: rect(90px, 9999px, 100px, 0);
+            }
+
+            20% {
+                clip: rect(10px, 9999px, 80px, 0);
+            }
+
+            25% {
+                clip: rect(50px, 9999px, 20px, 0);
+            }
+
+            30% {
+                clip: rect(70px, 9999px, 60px, 0);
+            }
+
+            35% {
+                clip: rect(30px, 9999px, 20px, 0);
+            }
+
+            40% {
+                clip: rect(20px, 9999px, 10px, 0);
+            }
+
+            45% {
+                clip: rect(50px, 9999px, 90px, 0);
+            }
+
+            50% {
+                clip: rect(10px, 9999px, 40px, 0);
+            }
+
+            55% {
+                clip: rect(90px, 9999px, 10px, 0);
+            }
+
+            60% {
+                clip: rect(60px, 9999px, 70px, 0);
+            }
+
+            65% {
+                clip: rect(30px, 9999px, 20px, 0);
+            }
+
+            70% {
+                clip: rect(80px, 9999px, 50px, 0);
+            }
+
+            75% {
+                clip: rect(10px, 9999px, 90px, 0);
+            }
+
+            80% {
+                clip: rect(50px, 9999px, 20px, 0);
+            }
+
+            85% {
+                clip: rect(40px, 9999px, 60px, 0);
+            }
+
+            90% {
+                clip: rect(20px, 9999px, 30px, 0);
+            }
+
+            95% {
+                clip: rect(70px, 9999px, 10px, 0);
+            }
+
+            100% {
+                clip: rect(10px, 9999px, 50px, 0);
+            }
+        }
+
+        @keyframes glitch-anim2 {
+            0% {
+                clip: rect(10px, 9999px, 90px, 0);
+            }
+
+            5% {
+                clip: rect(30px, 9999px, 10px, 0);
+            }
+
+            10% {
+                clip: rect(80px, 9999px, 50px, 0);
+            }
+
+            15% {
+                clip: rect(40px, 9999px, 10px, 0);
+            }
+
+            20% {
+                clip: rect(90px, 9999px, 20px, 0);
+            }
+
+            25% {
+                clip: rect(20px, 9999px, 70px, 0);
+            }
+
+            30% {
+                clip: rect(60px, 9999px, 30px, 0);
+            }
+
+            35% {
+                clip: rect(10px, 9999px, 90px, 0);
+            }
+
+            40% {
+                clip: rect(50px, 9999px, 10px, 0);
+            }
+
+            45% {
+                clip: rect(20px, 9999px, 40px, 0);
+            }
+
+            50% {
+                clip: rect(80px, 9999px, 20px, 0);
+            }
+
+            55% {
+                clip: rect(10px, 9999px, 60px, 0);
+            }
+
+            60% {
+                clip: rect(50px, 9999px, 10px, 0);
+            }
+
+            65% {
+                clip: rect(90px, 9999px, 30px, 0);
+            }
+
+            70% {
+                clip: rect(30px, 9999px, 80px, 0);
+            }
+
+            75% {
+                clip: rect(70px, 9999px, 20px, 0);
+            }
+
+            80% {
+                clip: rect(20px, 9999px, 50px, 0);
+            }
+
+            85% {
+                clip: rect(60px, 9999px, 10px, 0);
+            }
+
+            90% {
+                clip: rect(10px, 9999px, 70px, 0);
+            }
+
+            95% {
+                clip: rect(50px, 9999px, 30px, 0);
+            }
+
+            100% {
+                clip: rect(90px, 9999px, 10px, 0);
+            }
+        }
+
+        /* Sections General */
+        .section {
+            width: 100%;
+            max-width: 800px;
+            /* Reduced max-width for better readability */
+            margin: 0 auto 8rem auto;
+            /* Centered and more spacing */
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+            padding: 0 1rem;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .section-title {
-            font-size: 2rem;
+            font-size: 3rem;
+            /* Larger title */
+            font-weight: 700;
+            margin-bottom: 3rem;
+            text-align: center;
+            letter-spacing: 5px;
+            color: var(--text-color);
+            text-shadow: 0 0 15px rgba(138, 43, 226, 0.5);
+            position: relative;
+            text-transform: uppercase;
         }
 
-        .about-content,
-        .booking-form {
-            padding: 1.5rem;
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--accent-violet);
+            box-shadow: 0 0 10px var(--accent-violet);
         }
 
-        .audio-player {
-            padding: 0.5rem 1rem;
+        /* About Section */
+        .about-content {
+            text-align: center;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9);
+            background: rgba(5, 5, 5, 0.6);
+            /* Darker background */
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight {
+            color: var(--neon-purple);
+            font-weight: 600;
+            text-shadow: 0 0 8px rgba(188, 19, 254, 0.6);
+        }
+
+        /* Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .gallery-item {
+            aspect-ratio: 1;
+            overflow: hidden;
+            border-radius: 15px;
+            border: 1px solid var(--glass-border);
+            position: relative;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: #000;
+        }
+
+        .gallery-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a1a1a 0%, #050505 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-placeholder::before {
+            content: '';
+            width: 50px;
+            height: 50px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 10px 30px rgba(138, 43, 226, 0.3);
+            border-color: var(--accent-violet);
+        }
+
+        .gallery-item:hover .gallery-placeholder::before {
+            left: 0;
+            width: 100%;
+            background: rgba(5, 5, 5, 0.95);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid var(--glass-border);
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 100;
+            transform: translateY(100%);
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .audio-player.active {
+            transform: translateY(0);
+        }
+
+        .track-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .track-art {
+            width: 50px;
+            height: 50px;
+            background: var(--accent-violet);
+            border-radius: 5px;
+        }
+
+        .track-details {
+            display: flex;
             flex-direction: column;
-            gap: 0.5rem;
+        }
+
+        .track-name {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: #fff;
+        }
+
+        .track-artist {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.6);
         }
 
         .player-controls {
-            width: 100%;
-            justify-content: center;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
         }
-    }
+
+        .play-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #fff;
+            transition: color 0.3s ease;
+        }
+
+        .play-btn:hover {
+            color: var(--accent-violet);
+        }
+
+        .play-btn svg {
+            width: 32px;
+            height: 32px;
+            fill: currentColor;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90vh;
+            border: 2px solid var(--accent-violet);
+            box-shadow: 0 0 50px rgba(138, 43, 226, 0.3);
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .lightbox.active .lightbox-content {
+            transform: scale(1);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .lightbox-close:hover {
+            color: var(--accent-violet);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .portals {
+                gap: 1.5rem;
+            }
+
+            .portal-icon {
+                width: 60px;
+                height: 60px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .about-content,
+            .booking-form {
+                padding: 1.5rem;
+            }
+
+            .audio-player {
+                padding: 0.5rem 1rem;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .player-controls {
+                width: 100%;
+                justify-content: center;
+            }
+        }
