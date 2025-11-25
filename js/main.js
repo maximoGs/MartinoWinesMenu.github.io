@@ -106,3 +106,40 @@ function animate() {
 
 resize();
 animate();
+
+// Scroll Animation (Intersection Observer)
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px"
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, observerOptions);
+
+document.querySelectorAll('.section').forEach(section => {
+    observer.observe(section);
+});
+
+// Booking Form Logic
+const bookingForm = document.getElementById('booking-form');
+
+if (bookingForm) {
+    bookingForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const name = document.getElementById('name').value;
+        const date = document.getElementById('date').value;
+        const venue = document.getElementById('venue').value;
+        const details = document.getElementById('details').value;
+        
+        const subject = `BOOKING REQUEST: ${name} - ${date}`;
+        const body = `Name/Org: ${name}%0D%0ADate: ${date}%0D%0AVenue: ${venue}%0D%0A%0D%0ADetails:%0D%0A${details}`;
+        
+        window.location.href = `mailto:misterykprods@gmail.com?subject=${subject}&body=${body}`;
+    });
+}

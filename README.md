@@ -1,20 +1,39 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# CHANO SMOVIR - Official Portfolio
 
-# Run and deploy your AI Studio app
+This is the official portfolio website for DJ Chano Smovir, designed to be an immersive digital experience reflecting his "Underground Elegant" aesthetic.
 
-This contains everything you need to run your app locally.
+## 🎵 Features
 
-View your app in AI Studio: https://ai.studio/apps/drive/1AKRsNEjbGb31sA0M8U_dXV5l59vqxgdm
+- **Immersive Design**: "Deep Black" background with "Electric Violet" accents and neon glows.
+- **Interactive Background**: Custom particle system that reacts to mouse movement, symbolizing connection.
+- **Social Portals**: Interactive links to Instagram, SoundCloud, TikTok, and YouTube.
+- **Gallery**: Visual showcase of the artist.
+- **Booking System**: Direct mailto integration for booking inquiries (sends to `misterykprods@gmail.com`).
+- **Responsive**: Fully optimized for mobile and desktop.
 
-## Run Locally
+## 🛠 Tech Stack
 
-**Prerequisites:**  Node.js
+- **HTML5**: Semantic structure.
+- **CSS3**: Custom animations, glassmorphism, and responsive grid layouts.
+- **Vanilla JavaScript**: Particle system and form logic.
+- **No Frameworks**: Zero dependencies for maximum performance and easy deployment.
 
+## 🚀 Deployment
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+This project is designed for **GitHub Pages**.
+
+1. Push changes to the `master` branch.
+2. The GitHub Action `Deploy static content to Pages` will automatically build and deploy the site.
+3. Access the live site at: `https://maximoGs.github.io/ChanoSmovir.github.io/` (or your custom domain).
+
+## 📁 Structure
+
+- `index.html`: Main entry point.
+- `css/style.css`: All styles and animations.
+- `js/main.js`: Particle animation and interaction logic.
+- `assets/`: Directory for images and other static assets.
+
+## 📧 Contact
+
+**Management & Design**: Mysterik Producciones
+**Booking**: misterykprods@gmail.com
