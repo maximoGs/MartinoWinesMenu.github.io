@@ -20,10 +20,17 @@
 <body>
     <canvas id="bg-canvas"></canvas>
 
+    <!-- Language Toggle -->
+    <button id="lang-toggle" class="lang-toggle" aria-label="Switch Language">
+        <span class="lang-option active" data-lang="es">ES</span>
+        <span class="lang-separator">/</span>
+        <span class="lang-option" data-lang="en">EN</span>
+    </button>
+
     <main class="container">
         <header class="hero">
             <h1 class="glitch" data-text="CHANO SMOVIR">CHANO SMOVIR</h1>
-            <p class="subtitle">ARGENTINE ROOTS // HOUSE // TECHNO</p>
+            <p class="subtitle" data-i18n="subtitle">ARGENTINE ROOTS // HOUSE // TECHNO</p>
         </header>
 
         <section class="portals">
@@ -97,15 +104,15 @@
 
         <!-- About Section -->
         <section class="section about fade-in">
-            <h2 class="section-title">THE ARTIST</h2>
+            <h2 class="section-title" data-i18n="aboutTitle">THE ARTIST</h2>
             <div class="about-content">
-                <p>
+                <p data-i18n="aboutText1">
                     Emerging from the vibrant underground scene of Argentina, <span class="highlight">Chano
                         Smovir</span>
                     bridges the gap between traditional cultural roots and the futuristic pulse of
                     <span class="highlight">House & Techno</span>.
                 </p>
-                <p>
+                <p data-i18n="aboutText2">
                     His sets are not just music; they are a journey through the void, illuminated by
                     flashes of electric energy. A sonic experience designed to connect souls on the dancefloor.
                 </p>
@@ -114,7 +121,7 @@
 
         <!-- Gallery Section -->
         <section class="section gallery fade-in">
-            <h2 class="section-title">VISUALS</h2>
+            <h2 class="section-title" data-i18n="galleryTitle">VISUALS</h2>
             <div class="gallery-grid">
                 <!-- Placeholders for now, user can replace src -->
                 <div class="gallery-item">
@@ -132,29 +139,25 @@
             </div>
         </section>
 
-        <!-- Booking Section -->
-        <section class="section booking fade-in">
-            <h2 class="section-title">BOOKING</h2>
-            <p class="booking-subtitle">Ready to elevate your event?</p>
+        <!-- Connect Section (Replaces Booking) -->
+        <section class="section connect fade-in">
+            <h2 class="section-title" data-i18n="connectTitle">CONNECT</h2>
+            <p class="booking-subtitle" data-i18n="connectSubtitle">Follow the journey or get in touch.</p>
 
-            <form id="booking-form" class="booking-form">
-                <div class="form-group">
-                    <input type="text" id="name" placeholder="YOUR NAME / ORGANIZATION" required>
-                </div>
-                <div class="form-group">
-                    <input type="date" id="date" required>
-                </div>
-                <div class="form-group">
-                    <input type="text" id="venue" placeholder="VENUE / LOCATION" required>
-                </div>
-                <div class="form-group">
-                    <textarea id="details" placeholder="EVENT DETAILS / VISION" rows="4" required></textarea>
-                </div>
-                <button type="submit" class="btn-submit">
-                    <span>INITIATE CONTACT</span>
-                    <div class="btn-glitch"></div>
-                </button>
-            </form>
+            <div class="portals">
+                <!-- Reusing portal styles for consistency -->
+                <a href="mailto:misterykprods@gmail.com" class="portal-link">
+                    <div class="portal-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                            </path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                    </div>
+                    <span class="portal-label">EMAIL</span>
+                </a>
+            </div>
         </section>
 
         <footer class="footer">

@@ -125,24 +125,61 @@ document.querySelectorAll('.section').forEach(section => {
     observer.observe(section);
 });
 
-// Booking Form Logic
-const bookingForm = document.getElementById('booking-form');
+// Translations
+const translations = {
+    es: {
+        subtitle: "RAÍCES ARGENTINAS // HOUSE // TECHNO",
+        aboutTitle: "EL ARTISTA",
+        aboutText1: "Emergiendo de la vibrante escena underground de Argentina, <span class='highlight'>Chano Smovir</span> une las raíces culturales tradicionales con el pulso futurista del <span class='highlight'>House & Techno</span>.",
+        aboutText2: "Sus sets no son solo música; son un viaje a través del vacío, iluminado por destellos de energía eléctrica. Una experiencia sónica diseñada para conectar almas en la pista de baile.",
+        galleryTitle: "VISUALES",
+        connectTitle: "CONECTAR",
+        connectSubtitle: "Sigue el viaje o ponte en contacto."
+    },
+    en: {
+        subtitle: "ARGENTINE ROOTS // HOUSE // TECHNO",
+        aboutTitle: "THE ARTIST",
+        aboutText1: "Emerging from the vibrant underground scene of Argentina, <span class='highlight'>Chano Smovir</span> bridges the gap between traditional cultural roots and the futuristic pulse of <span class='highlight'>House & Techno</span>.",
+        aboutText2: "His sets are not just music; they are a journey through the void, illuminated by flashes of electric energy. A sonic experience designed to connect souls on the dancefloor.",
+        galleryTitle: "VISUALS",
+        connectTitle: "CONNECT",
+        connectSubtitle: "Follow the journey or get in touch."
+    }
+};
 
-if (bookingForm) {
-    bookingForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        const name = document.getElementById('name').value;
-        const date = document.getElementById('date').value;
-        const venue = document.getElementById('venue').value;
-        const details = document.getElementById('details').value;
-        
-        const subject = `BOOKING REQUEST: ${name} - ${date}`;
-        const body = `Name/Org: ${name}%0D%0ADate: ${date}%0D%0AVenue: ${venue}%0D%0A%0D%0ADetails:%0D%0A${details}`;
-        
-        window.location.href = `mailto:misterykprods@gmail.com?subject=${subject}&body=${body}`;
+// Language Toggle Logic
+const langToggle = document.getElementById('lang-toggle');
+const langOptions = document.querySelectorAll('.lang-option');
+let currentLang = 'es'; // Default
+
+if (langToggle) {
+    langToggle.addEventListener('click', () => {
+        currentLang = currentLang === 'es' ? 'en' : 'es';
+        updateLanguage(currentLang);
     });
 }
+
+function updateLanguage(lang) {
+    // Update Toggle UI
+    langOptions.forEach(opt => {
+        if (opt.dataset.lang === lang) {
+            opt.classList.add('active');
+        } else {
+            opt.classList.remove('active');
+        }
+    });
+
+    // Update Text Content
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        if (translations[lang][key]) {
+            el.innerHTML = translations[lang][key];
+        }
+    });
+}
+
+// Initialize Language (Optional: Check browser preference)
+updateLanguage('es');
 
 // Audio Player Logic
 const playBtn = document.getElementById('play-btn');
