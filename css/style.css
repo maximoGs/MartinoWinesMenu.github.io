@@ -79,8 +79,10 @@ body {
     width: 100%;
     max-width: 1200px;
     background: transparent;
-    /* Changed to transparent for grid visibility */
     padding-bottom: 4rem;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /* Hero Section */
@@ -292,7 +294,6 @@ body {
     position: relative;
     width: 100%;
     max-width: 600px;
-    /* Smaller width as requested */
     margin: 0 auto;
     overflow: hidden;
     border-radius: 20px;
@@ -304,7 +305,6 @@ body {
     display: flex;
     transition: transform 0.5s ease-in-out;
     height: 350px;
-    /* Smaller height */
 }
 
 .gallery-slide {
@@ -489,14 +489,16 @@ body {
 
 /* Footer */
 .footer {
-    position: absolute;
-    bottom: 2rem;
     width: 100%;
     text-align: center;
+    padding: 2rem 0;
+    margin-top: auto;
+    /* Pushes footer to bottom */
+    position: relative;
 }
 
 .credits {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     color: rgba(255, 255, 255, 0.4);
     text-decoration: none;
     transition: color 0.3s ease;
@@ -505,6 +507,7 @@ body {
 
 .credits:hover {
     color: var(--accent-violet);
+    text-shadow: 0 0 10px var(--accent-violet);
 }
 
 /* Animations */
@@ -692,38 +695,6 @@ body {
     }
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-
-    .portals {
-        gap: 1.5rem;
-    }
-
-    .portal-icon {
-        width: 60px;
-        height: 60px;
-    }
-
-    .section-title {
-        font-size: 2rem;
-    }
-
-    .about-content {
-        padding: 1.5rem;
-    }
-
-    .gallery-slider-container {
-        max-width: 100%;
-    }
-
-    .gallery-track {
-        height: 250px;
-    }
-}
-
 /* Rider Section */
 .rider-grid {
     display: grid;
@@ -778,8 +749,37 @@ body {
     color: var(--neon-purple);
 }
 
-/* Responsive Overrides for Rider */
+/* Responsive Overrides */
 @media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .portals {
+        gap: 1.5rem;
+    }
+
+    .portal-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .about-content {
+        padding: 1.5rem;
+    }
+
+    .gallery-slider-container {
+        max-width: 100%;
+    }
+
+    .gallery-track {
+        height: 250px;
+    }
+
     .rider-grid {
         grid-template-columns: 1fr;
     }

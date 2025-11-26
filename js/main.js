@@ -63,10 +63,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const translations = {
         es: {
+            subtitle: "RAÍCES ARGENTINAS // HOUSE // TECHNO",
             gallery_title: "GALERÍA",
             video_title: "SETS EN VIVO",
             video_caption: "Siente la energía del underground.",
             connect_title: "CONECTAR",
+            connect_subtitle: "Sigue el viaje o contáctanos.",
             footer_text: "Gestión y Diseño por Mysterik Producciones",
             rider_title: "RIDER",
             tech_title: "RIDER TÉCNICO",
@@ -83,10 +85,12 @@ document.addEventListener('DOMContentLoaded', () => {
             hosp_item_5: "2x Pases All Access"
         },
         en: {
+            subtitle: "ARGENTINE ROOTS // HOUSE // TECHNO",
             gallery_title: "GALLERY",
             video_title: "LIVE SETS",
             video_caption: "Experience the energy of the underground.",
             connect_title: "CONNECT",
+            connect_subtitle: "Follow the journey or get in touch.",
             footer_text: "Management & Design by Mysterik Producciones",
             rider_title: "RIDER",
             tech_title: "TECHNICAL RIDER",
