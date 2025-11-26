@@ -18,7 +18,11 @@
 </head>
 
 <body>
-    <canvas id="bg-canvas"></canvas>
+    <!-- Vaporwave Grid Background -->
+    <div class="vaporwave-grid">
+        <div class="grid-plane"></div>
+        <div class="grid-horizon"></div>
+    </div>
 
     <!-- Language Toggle -->
     <button id="lang-toggle" class="lang-toggle" aria-label="Switch Language">
@@ -119,23 +123,55 @@
             </div>
         </section>
 
-        <!-- Gallery Section -->
-        <section class="section gallery fade-in">
-            <h2 class="section-title" data-i18n="galleryTitle">VISUALS</h2>
-            <div class="gallery-grid">
-                <!-- Placeholders for now, user can replace src -->
-                <div class="gallery-item">
-                    <div class="gallery-placeholder"></div>
+        <!-- Gallery Section (Slider) -->
+        <section class="section gallery-section" id="gallery">
+            <h2 class="section-title" data-i18n="gallery_title">GALLERY</h2>
+
+            <div class="gallery-slider-container">
+                <button class="slider-nav prev" aria-label="Previous Slide">❮</button>
+                <div class="gallery-track">
+                    <!-- Slide 1 -->
+                    <div class="gallery-slide active">
+                        <img src="assets/1.jpg" alt="DJ Chano Event 1">
+                        <div class="slide-overlay"></div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="gallery-slide">
+                        <img src="assets/4.jpg" alt="DJ Chano Event 2">
+                        <div class="slide-overlay"></div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="gallery-slide">
+                        <img src="assets/5.jpg" alt="DJ Chano Event 3">
+                        <div class="slide-overlay"></div>
+                    </div>
                 </div>
-                <div class="gallery-item">
-                    <div class="gallery-placeholder"></div>
+                <button class="slider-nav next" aria-label="Next Slide">❯</button>
+
+                <!-- Dots Navigation -->
+                <div class="slider-dots">
+                    <span class="dot active" data-index="0"></span>
+                    <span class="dot" data-index="1"></span>
+                    <span class="dot" data-index="2"></span>
                 </div>
-                <div class="gallery-item">
-                    <div class="gallery-placeholder"></div>
+            </div>
+        </section>
+
+        <!-- Video Compilation Section -->
+        <section class="section video-section" id="video">
+            <h2 class="section-title" data-i18n="video_title">LIVE SETS</h2>
+            <div class="video-container">
+                <!-- Replace src with actual video compilation URL or local file -->
+                <!-- Using a placeholder for now, user can update the src -->
+                <div class="video-wrapper">
+                    <iframe width="560" height="315"
+                        src="https://www.youtube.com/embed/videoseries?list=PLExamplePlaylist"
+                        title="DJ Chano Live Sets" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
                 </div>
-                <div class="gallery-item">
-                    <div class="gallery-placeholder"></div>
-                </div>
+                <p class="video-caption" data-i18n="video_caption">Experience the energy of the underground.</p>
             </div>
         </section>
 

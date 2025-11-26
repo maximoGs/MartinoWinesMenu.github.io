@@ -2,10 +2,13 @@
 
 This is the official portfolio website for DJ Chano Smovir, designed to be an immersive digital experience reflecting his "Underground Elegant" aesthetic.
 
-## 🎵 Features
-
-- **Immersive Design**: "Deep Black" background with "Electric Violet" accents and neon glows.
-- **Interactive Background**: Custom particle system that reacts to mouse movement, symbolizing connection.
+## Features
+- **Immersive Vaporwave Design**: Pure CSS infinite perspective grid background.
+- **Interactive Gallery Slider**: Custom-built carousel with touch support and smooth transitions.
+- **Live Sets Video Section**: Responsive video compilation area.
+- **Audio Player**: Persistent background music with custom controls.
+- **Bilingual Support**: Instant English/Spanish toggle.
+- **Responsive Layout**: Optimized for all devices, from mobile phones to desktops.
 - **Social Portals**: Interactive links to Instagram, SoundCloud, TikTok, and YouTube.
 - **Gallery**: Visual showcase of the artist.
 - **Booking System**: Direct mailto integration for booking inquiries (sends to `misterykprods@gmail.com`).
