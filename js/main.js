@@ -2,82 +2,68 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* --- Data: Menu Items --- */
     const menuData = {
-        main: [
+        classic_pizzas: [
             { 
-                id: 'm1', 
-                price: 18.00, 
-                img: 'https://images.unsplash.com/photo-1595295333158-4742f28fbd85?q=80&w=500&auto=format&fit=crop',
-                name: { es: "Pasta Carbonara Tradicional", en: "Traditional Carbonara", pt: "Carbonara Tradicional" }, 
-                desc: { es: "Spaghetti, guanciale, pecorino romano, pimienta negra, yema de huevo.", en: "Spaghetti, guanciale, pecorino romano, black pepper, egg yolk.", pt: "Spaghetti, guanciale, pecorino romano, pimenta preta, gema de ovo." } 
-            },
-            { 
-                id: 'm2', 
-                price: 22.00, 
-                img: 'https://images.unsplash.com/photo-1627207644006-27fcc910747e?q=80&w=500&auto=format&fit=crop',
-                name: { es: "Ossobuco a la Milanesa", en: "Ossobuco Milanese", pt: "Ossobuco à Milanesa" }, 
-                desc: { es: "Jarrete de ternera estofado con risotto de azafrán.", en: "Braised veal shank with saffron risotto.", pt: "Jarret de vitela estufada com risoto de açafrão." } 
-            },
-            { 
-                id: 'm3', 
-                price: 16.50, 
+                id: 'cp1', 
+                price: 12.00, 
                 img: 'https://images.unsplash.com/photo-1574071318000-8595d03fd19a?q=80&w=500&auto=format&fit=crop',
-                name: { es: "Pizza Napolitana DOP", en: "Neapolitan Pizza DOP", pt: "Pizza Napolitana DOP" }, 
-                desc: { es: "Salsa de tomate San Marzano, mozzarella di bufala, albahaca fresca.", en: "San Marzano tomato sauce, buffalo mozzarella, fresh basil.", pt: "Molho de tomate San Marzano, mozzarella de búfala, manjericão fresco." } 
+                name: { es: "Muzzarella Clásica", en: "Classic Mozzarella", pt: "Mussarela Clássica" }, 
+                desc: { es: "Salsa de tomate casera, abundante muzzarella, orégano y aceitunas.", en: "Homemade tomato sauce, abundant mozzarella, oregano, and olives.", pt: "Molho de tomate caseiro, muita mussarela, orégano e azeitonas." } 
             },
             { 
-                id: 'm4', 
-                price: 24.00, 
-                img: 'https://images.unsplash.com/photo-1632778149955-e80f8ceca2e8?q=80&w=500&auto=format&fit=crop',
-                name: { es: "Bistecca alla Fiorentina", en: "Florentine Steak", pt: "Bistecca alla Fiorentina" }, 
-                desc: { es: "Chuletón de ternera a la parrilla con romero y aceite de oliva.", en: "Grilled T-bone steak with rosemary and olive oil.", pt: "T-bone grelhado com alecrim e azeite de oliva." } 
+                id: 'cp2', 
+                price: 13.50, 
+                img: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=500&auto=format&fit=crop',
+                name: { es: "Napolitana con Ajo", en: "Napolitana with Garlic", pt: "Napolitana com Alho" }, 
+                desc: { es: "Rodajas de tomate fresco, ajo picado, muzzarella y aceite de oliva.", en: "Fresh tomato slices, minced garlic, mozzarella, and olive oil.", pt: "Fatias de tomate fresco, alho picado, mussarela e azeite de oliva." } 
             }
         ],
-        desserts: [
+        special_pizzas: [
             { 
-                id: 'd1', 
-                price: 8.00, 
-                img: 'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?q=80&w=500&auto=format&fit=crop',
-                name: { es: "Tiramisu Clásico", en: "Classic Tiramisu", pt: "Tiramisu Clássico" }, 
-                desc: { es: "Bizcochos savoiardi, café espresso, mascarpone, cacao.", en: "Savoiardi biscuits, espresso, mascarpone, cocoa.", pt: "Biscoitos savoiardi, café expresso, mascarpone, cacau." } 
+                id: 'sp1', 
+                price: 16.00, 
+                img: 'https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?q=80&w=500&auto=format&fit=crop',
+                name: { es: "Shagui Suprema", en: "Shagui Supreme", pt: "Shagui Suprema" }, 
+                desc: { es: "Nuestra especialidad: panceta crujiente, cebolla caramelizada, huevo y pimientos.", en: "Our specialty: crispy bacon, caramelized onion, egg, and peppers.", pt: "Nossa especialidade: bacon crocante, cebola caramelizada, ovo e pimentões." } 
             },
             { 
-                id: 'd2', 
-                price: 7.50, 
-                img: 'https://images.unsplash.com/photo-1616031026048-28438ed2e132?q=80&w=500&auto=format&fit=crop',
-                name: { es: "Panna Cotta", en: "Panna Cotta", pt: "Panna Cotta" }, 
-                desc: { es: "Crema de vainilla con coulis de frutos rojos.", en: "Vanilla cream with berry coulis.", pt: "Creme de baunilha com coulis de frutas vermelhas." } 
+                id: 'sp2', 
+                price: 15.50, 
+                img: 'https://images.unsplash.com/photo-1628840042765-356cda07504e?q=80&w=500&auto=format&fit=crop',
+                name: { es: "Cuatro Quesos Luxury", en: "Luxury Four Cheese", pt: "Quatro Queijos Luxo" }, 
+                desc: { es: "Mozzarella, Roquefort, Parmesano y Provolone de primera calidad.", en: "Mozzarella, Roquefort, Parmesan, and premium Provolone.", pt: "Mussarela, Roquefort, Parmesão e Provolone de primeira qualidade." } 
+            }
+        ],
+        calzones: [
+            { 
+                id: 'cz1', 
+                price: 14.00, 
+                img: 'https://images.unsplash.com/photo-1534349762230-e0cadf78f5da?q=80&w=500&auto=format&fit=crop',
+                name: { es: "Calzone Calabresa", en: "Calabrese Calzone", pt: "Calzone Calabresa" }, 
+                desc: { es: "Relleno explosivo de longaniza calabresa, queso fundido y salsa picante.", en: "Explosive filling of calabrese sausage, melted cheese, and spicy sauce.", pt: "Recheio explosivo de linguiça calabresa, queijo derretido e molho picante." } 
+            },
+            { 
+                id: 'cz2', 
+                price: 14.50, 
+                img: 'https://images.unsplash.com/photo-1628840042765-356cda07504e?q=80&w=500&auto=format&fit=crop', // Reusing pizza image as placeholder
+                name: { es: "Calzone Vegetariano", en: "Veggie Calzone", pt: "Calzone Vegetariano" }, 
+                desc: { es: "Espinaca fresca, ricota suave, nueces y toque de nuez moscada.", en: "Fresh spinach, smooth ricotta, walnuts, and a touch of nutmeg.", pt: "Espinafre fresco, ricota suave, nozes e toque de noz-moscada." } 
             }
         ],
         drinks: [
             { 
-                id: 'b1', 
-                price: 12.00, 
-                img: 'https://images.unsplash.com/photo-1516559828984-fb3b99548b21?q=80&w=500&auto=format&fit=crop',
-                name: { es: "Aperol Spritz", en: "Aperol Spritz", pt: "Aperol Spritz" }, 
-                desc: { es: "Prosecco, Aperol, soda, naranja.", en: "Prosecco, Aperol, soda, orange.", pt: "Prosecco, Aperol, água com gás, laranja." } 
+                id: 'dr1', 
+                price: 3.50, 
+                img: 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?q=80&w=500&auto=format&fit=crop',
+                name: { es: "Coca Cola", en: "Coke", pt: "Coca Cola" }, 
+                desc: { es: "Lata 354ml bien fría.", en: "Cold 354ml can.", pt: "Lata 354ml bem gelada." } 
             },
             { 
-                id: 'b2', 
-                price: 45.00, 
-                img: 'https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?q=80&w=500&auto=format&fit=crop',
-                name: { es: "Chianti Classico Riserva", en: "Chianti Classico Riserva", pt: "Chianti Classico Riserva" }, 
-                desc: { es: "Botella 750ml - Toscana", en: "Bottle 750ml - Tuscany", pt: "Garrafa 750ml - Toscana" } 
-            },
-            { 
-                id: 'b3', 
-                price: 6.00, 
-                img: 'https://images.unsplash.com/photo-1627460935510-cd39ccce03b2?q=80&w=500&auto=format&fit=crop',
-                name: { es: "San Pellegrino", en: "San Pellegrino", pt: "San Pellegrino" }, 
-                desc: { es: "Agua con gas italiana 500ml", en: "Italian sparkling water 500ml", pt: "Água com gás italiana 500ml" } 
-            }
-        ],
-        promos: [
-            { 
-                id: 'p1', 
-                price: 55.00, 
-                img: 'https://images.unsplash.com/photo-1544148103-0773bf10d330?q=80&w=500&auto=format&fit=crop',
-                name: { es: "Cena Romántica", en: "Romantic Dinner", pt: "Jantar Romântico" }, 
-                desc: { es: "2 Platos de Pasta + 1 Botella de Vino + 2 Postres", en: "2 Pasta Dishes + 1 Wine Bottle + 2 Desserts", pt: "2 Pratos de Massa + 1 Garrafa de Vinho + 2 Sobremesas" } 
+                id: 'dr2', 
+                price: 5.00, 
+                img: 'https://images.unsplash.com/photo-1608270586620-248524c67de9?q=80&w=500&auto=format&fit=crop',
+                name: { es: "Cerveza Lager", en: "Lager Beer", pt: "Cerveja Lager" }, 
+                desc: { es: "Pinta artesanal rubia y refrescante.", en: "Refreshing craft blonde pint.", pt: "Pint artesanal loira e refrescante." } 
             }
         ]
     };
@@ -85,52 +71,51 @@ document.addEventListener('DOMContentLoaded', () => {
     /* --- Translations --- */
     const translations = {
         es: {
-            menu_title: "LA CONCCETINA",
-            menu_subtitle: "Auténtica Cocina Italiana",
-            cat_main: "Primi & Secondi",
-            cat_desserts: "Dolci",
-            cat_drinks: "Bevande",
-            cat_promos: "Ofertas Especiales",
-            cart_title: "Il Tuo Ordine",
-            cart_empty: "Tu carrito está vacío.",
-            total: "Totale:",
+            menu_title: "SHAGUI PIZZAS",
+            menu_subtitle: "El verdadero sabor casero",
+            cat_classic_pizzas: "Pizzas Clásicas",
+            cat_special_pizzas: "Pizzas Especiales",
+            cat_calzones: "Calzones",
+            cat_drinks: "Bebidas",
+            cart_title: "Tu Pedido",
+            cart_empty: "Aún no elegiste tu pizza.",
+            total: "Total:",
             checkout_whatsapp: "Pedir por WhatsApp",
-            add_btn: "Agregar",
-            currency: "€"
+            add_btn: "AGREGAR",
+            currency: "$"
         },
         en: {
-            menu_title: "LA CONCCETINA",
-            menu_subtitle: "Authentic Italian Cuisine",
-            cat_main: "Primi & Secondi",
-            cat_desserts: "Dolci",
-            cat_drinks: "Bevande",
-            cat_promos: "Special Offers",
+            menu_title: "SHAGUI PIZZAS",
+            menu_subtitle: "True homemade taste",
+            cat_classic_pizzas: "Classic Pizzas",
+            cat_special_pizzas: "Special Pizzas",
+            cat_calzones: "Calzones",
+            cat_drinks: "Drinks",
             cart_title: "Your Order",
-            cart_empty: "Your cart is empty.",
+            cart_empty: "No pizza chosen yet.",
             total: "Total:",
             checkout_whatsapp: "Order via WhatsApp",
-            add_btn: "Add",
-            currency: "€"
+            add_btn: "ADD",
+            currency: "$"
         },
         pt: {
-            menu_title: "LA CONCCETINA",
-            menu_subtitle: "Autêntica Cozinha Italiana",
-            cat_main: "Primi & Secondi",
-            cat_desserts: "Dolci",
-            cat_drinks: "Bevande",
-            cat_promos: "Ofertas Especiais",
+            menu_title: "SHAGUI PIZZAS",
+            menu_subtitle: "O verdadeiro sabor caseiro",
+            cat_classic_pizzas: "Pizzas Clássicas",
+            cat_special_pizzas: "Pizzas Especiais",
+            cat_calzones: "Calzones",
+            cat_drinks: "Bebidas",
             cart_title: "Seu Pedido",
-            cart_empty: "Seu carrinho está vazio.",
+            cart_empty: "Ainda não escolheu sua pizza.",
             total: "Total:",
             checkout_whatsapp: "Pedir pelo WhatsApp",
-            add_btn: "Adicionar",
-            currency: "€"
+            add_btn: "ADICIONAR",
+            currency: "$"
         }
     };
 
     let currentLang = 'es';
-    let currentCategory = 'main';
-    let cart = [];
+    let currentCategory = 'classic_pizzas'; // Updated default category
 
     // DOM Elements
     const menuGrid = document.getElementById('menu-grid');

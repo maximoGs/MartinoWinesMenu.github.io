@@ -1,19 +1,19 @@
-# La Conccetina 🍝
+# Shagui Pizzas 🍕
 
-*Auténtica Cocina Italiana*
+*Authentic Calzones & Pizzas*
 
-A standard, warm, and classic Italian restaurant menu application.
+A premium digital menu featuring the best homemade pizzas and legendary calzones.
 
 ## Features
 
-- **Classic Menu**: Browse Primi, Secondi, Dolci, and Vini.
-- **Warm Aesthetics**: Designed with a rustic, paper-textured Italian trattoria theme.
-- **Interactive Cart**: Manage your orders seamlessly.
-- **WhatsApp Support**: Send orders directly to the kitchen via WhatsApp.
-- **Multi-language**: Italiano / English / Español.
+- **Specialized Menu**: Classics, Specials, Calzones, and Drinks.
+- **Royal Theme**: Elegant Light Blue & Gold aesthetic (`#E3F2FD` + Gold).
+- **Interactive Cart**: seamless order management.
+- **WhatsApp Checkout**: Direct ordering via WhatsApp.
+- **Multi-language**: Español / English / Português.
 
 ## Quick Start
 
 1. Clone the repo.
 2. Open `index.html`.
-3. *Buon appetito!*
+3. Enjoy the best pizza in town!
