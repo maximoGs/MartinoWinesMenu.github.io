@@ -6,64 +6,85 @@ document.addEventListener('DOMContentLoaded', () => {
             { 
                 id: 'cp1', 
                 price: 12.00, 
-                img: 'https://images.unsplash.com/photo-1574071318000-8595d03fd19a?q=80&w=500&auto=format&fit=crop',
+                img: 'https://images.unsplash.com/photo-1574071318000-8595d03fd19a?q=80&w=600&auto=format&fit=crop',
                 name: { es: "Muzzarella Clásica", en: "Classic Mozzarella", pt: "Mussarela Clássica" }, 
-                desc: { es: "Salsa de tomate casera, abundante muzzarella, orégano y aceitunas.", en: "Homemade tomato sauce, abundant mozzarella, oregano, and olives.", pt: "Molho de tomate caseiro, muita mussarela, orégano e azeitonas." } 
+                desc: { es: "Nuestra masa madre de 48hs, salsa de tomates italianos, abundante muzzarella premium y aceitunas deshuesadas.", en: "Our 48h sourdough, Italian tomato sauce, abundant premium mozzarella, and pitted olives.", pt: "Nossa massa madre de 48h, molho de tomates italianos, muita mussarela premium e azeitonas sem caroço." } 
             },
             { 
                 id: 'cp2', 
                 price: 13.50, 
-                img: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=500&auto=format&fit=crop',
-                name: { es: "Napolitana con Ajo", en: "Napolitana with Garlic", pt: "Napolitana com Alho" }, 
-                desc: { es: "Rodajas de tomate fresco, ajo picado, muzzarella y aceite de oliva.", en: "Fresh tomato slices, minced garlic, mozzarella, and olive oil.", pt: "Fatias de tomate fresco, alho picado, mussarela e azeite de oliva." } 
+                img: 'https://images.unsplash.com/photo-1595854341625-f33ee10dbf94?q=80&w=600&auto=format&fit=crop',
+                name: { es: "Napolitana al Ajo", en: "Garlic Napolitana", pt: "Napolitana ao Alho" }, 
+                desc: { es: "Rodajas de tomate perita fresco, ajo asado, aceite de oliva virgen extra y hojas de albahaca fresca.", en: "Fresh pear tomato slices, roasted garlic, extra virgin olive oil, and fresh basil leaves.", pt: "Fatias de tomate fresco, alho assado, azeite de oliva extra virgem e folhas de manjericão fresco." } 
+            },
+            { 
+                id: 'cp3', 
+                price: 13.00, 
+                img: 'https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?q=80&w=600&auto=format&fit=crop',
+                name: { es: "Fugazzeta Rellena", en: "Stuffed Onion Pizza", pt: "Fugazzeta Recheada" }, 
+                desc: { es: "Doble masa rellena de queso cuartirolo, cubierta con cebollas caramelizadas y parmesano gratinado.", en: "Double dough stuffed with soft cheese, topped with caramelized onions and grated parmesan.", pt: "Massa dupla recheada com queijo macio, coberta com cebolas caramelizadas e parmesão gratinado." } 
             }
         ],
         special_pizzas: [
             { 
                 id: 'sp1', 
-                price: 16.00, 
-                img: 'https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?q=80&w=500&auto=format&fit=crop',
+                price: 16.50, 
+                img: 'https://images.unsplash.com/photo-1628840042765-356cda07504e?q=80&w=600&auto=format&fit=crop',
                 name: { es: "Shagui Suprema", en: "Shagui Supreme", pt: "Shagui Suprema" }, 
-                desc: { es: "Nuestra especialidad: panceta crujiente, cebolla caramelizada, huevo y pimientos.", en: "Our specialty: crispy bacon, caramelized onion, egg, and peppers.", pt: "Nossa especialidade: bacon crocante, cebola caramelizada, ovo e pimentões." } 
+                desc: { es: "La favorita: bondiola ahumada, cebolla morada, queso provolone, huevo y pimientos rojos asados.", en: "The favorite: smoked pork shoulder, red onion, provolone cheese, egg, and roasted red peppers.", pt: "A favorita: copa lombo defumada, cebola roxa, queijo provolone, ovo e pimentões vermelhos assados." } 
             },
             { 
                 id: 'sp2', 
-                price: 15.50, 
-                img: 'https://images.unsplash.com/photo-1628840042765-356cda07504e?q=80&w=500&auto=format&fit=crop',
+                price: 17.00, 
+                img: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=600&auto=format&fit=crop',
                 name: { es: "Cuatro Quesos Luxury", en: "Luxury Four Cheese", pt: "Quatro Queijos Luxo" }, 
-                desc: { es: "Mozzarella, Roquefort, Parmesano y Provolone de primera calidad.", en: "Mozzarella, Roquefort, Parmesan, and premium Provolone.", pt: "Mussarela, Roquefort, Parmesão e Provolone de primeira qualidade." } 
+                desc: { es: "Una mezcla decadente de Muzzarella, Roquefort francés, Parmesano Reggiano y Provolone picante.", en: "A decadent blend of Mozzarella, French Roquefort, Parmesan Reggiano, and spicy Provolone.", pt: "Uma mistura decadente de Mussarela, Roquefort francês, Parmesão Reggiano e Provolone picante." } 
+            },
+            { 
+                id: 'sp3', 
+                price: 18.00, 
+                img: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=600&auto=format&fit=crop',
+                name: { es: "Rúcula y Crudo", en: "Arugula & Prosciutto", pt: "Rúcula e Presunto Cru" }, 
+                desc: { es: "Base de tomate y muzzarella, terminada con rúcula fresca, jamón crudo di parma y lascas de parmesano.", en: "Tomato and mozzarella base, finished with fresh arugula, Parma prosciutto, and parmesan shavings.", pt: "Base de tomate e mussarela, finalizada com rúcula fresca, presunto de Parma e lascas de parmesão." } 
             }
         ],
         calzones: [
             { 
                 id: 'cz1', 
-                price: 14.00, 
-                img: 'https://images.unsplash.com/photo-1534349762230-e0cadf78f5da?q=80&w=500&auto=format&fit=crop',
+                price: 15.00, 
+                img: 'https://images.unsplash.com/photo-1534349762230-e0cadf78f5da?q=80&w=600&auto=format&fit=crop',
                 name: { es: "Calzone Calabresa", en: "Calabrese Calzone", pt: "Calzone Calabresa" }, 
-                desc: { es: "Relleno explosivo de longaniza calabresa, queso fundido y salsa picante.", en: "Explosive filling of calabrese sausage, melted cheese, and spicy sauce.", pt: "Recheio explosivo de linguiça calabresa, queijo derretido e molho picante." } 
+                desc: { es: "Masa crujiente rellena de rodajas de longaniza calabresa, muzzarella fundida y un toque de ají molido.", en: "Crispy dough filled with calabrese sausage slices, melted mozzarella, and a touch of chili flakes.", pt: "Massa crocante recheada com fatias de linguiça calabresa, mussarela derretida e um toque de pimenta calabresa." } 
             },
             { 
                 id: 'cz2', 
                 price: 14.50, 
-                img: 'https://images.unsplash.com/photo-1628840042765-356cda07504e?q=80&w=500&auto=format&fit=crop', // Reusing pizza image as placeholder
+                img: 'https://images.unsplash.com/photo-1571407921820-2c2628dd5384?q=80&w=600&auto=format&fit=crop', 
                 name: { es: "Calzone Vegetariano", en: "Veggie Calzone", pt: "Calzone Vegetariano" }, 
-                desc: { es: "Espinaca fresca, ricota suave, nueces y toque de nuez moscada.", en: "Fresh spinach, smooth ricotta, walnuts, and a touch of nutmeg.", pt: "Espinafre fresco, ricota suave, nozes e toque de noz-moscada." } 
+                desc: { es: "Espinaca salteada con ajo, ricota suave, nueces tostadas y nuez moscada. Una delicia ligera.", en: "Sautéed spinach with garlic, smooth ricotta, toasted walnuts, and nutmeg. A light delight.", pt: "Espinafre salteado com alho, ricota suave, nozes tostadas e noz-moscada. Uma delícia leve." } 
             }
         ],
         drinks: [
             { 
                 id: 'dr1', 
                 price: 3.50, 
-                img: 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?q=80&w=500&auto=format&fit=crop',
+                img: 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?q=80&w=600&auto=format&fit=crop',
                 name: { es: "Coca Cola", en: "Coke", pt: "Coca Cola" }, 
-                desc: { es: "Lata 354ml bien fría.", en: "Cold 354ml can.", pt: "Lata 354ml bem gelada." } 
+                desc: { es: "Lata 354ml bien fría, ideal para acompañar tu pizza.", en: "Cold 354ml can, perfect to accompany your pizza.", pt: "Lata 354ml bem gelada, ideal para acompanhar sua pizza." } 
             },
             { 
                 id: 'dr2', 
                 price: 5.00, 
-                img: 'https://images.unsplash.com/photo-1608270586620-248524c67de9?q=80&w=500&auto=format&fit=crop',
-                name: { es: "Cerveza Lager", en: "Lager Beer", pt: "Cerveja Lager" }, 
-                desc: { es: "Pinta artesanal rubia y refrescante.", en: "Refreshing craft blonde pint.", pt: "Pint artesanal loira e refrescante." } 
+                img: 'https://images.unsplash.com/photo-1608270586620-248524c67de9?q=80&w=600&auto=format&fit=crop',
+                name: { es: "Cerveza Lager Artesanal", en: "Craft Lager Beer", pt: "Cerveja Lager Artesanal" }, 
+                desc: { es: "Pinta de cerveza rubia, ligera y refrescante. Notas de malta y miel.", en: "Blonde beer pint, light and refreshing. Notes of malt and honey.", pt: "Pint de cerveja loira, leve e refrescante. Notas de malte e mel." } 
+            },
+            { 
+                id: 'dr3', 
+                price: 4.00, 
+                img: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=600&auto=format&fit=crop',
+                name: { es: "Limonada con Menta", en: "Mint Lemonade", pt: "Limonada com Hortelã" }, 
+                desc: { es: "Jugo de limón natural, menta fresca y jengibre.", en: "Natural lemon juice, fresh mint, and ginger.", pt: "Suco de limão natural, hortelã fresca e gengibre." } 
             }
         ]
     };
