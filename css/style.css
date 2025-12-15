@@ -160,6 +160,8 @@ h5 {
     width: 100%;
     height: auto;
     display: block;
+    filter: invert(1);
+    /* Forces white logo to black */
 }
 
 .brand-subtitle {
@@ -230,21 +232,24 @@ h5 {
     color: #fff;
 }
 
-/* PREMIUM GHOST BUTTON - Wine Section */
+/* PREMIUM GHOST BUTTON - Wine Section (COMPACT) */
 .add-btn {
     background-color: transparent;
     color: var(--text-primary);
     border: 1px solid var(--text-primary);
-    padding: 0.8rem 1.5rem;
+    padding: 0.5rem 1rem;
+    /* Smaller padding */
     font-family: var(--font-heading);
-    font-size: 0.85rem;
+    font-size: 0.75rem;
+    /* Smaller font */
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     cursor: pointer;
     transition: all 0.4s ease;
     width: 100%;
-    margin-top: 1.5rem;
+    margin-top: 1rem;
+    /* Less margin */
     position: relative;
     overflow: hidden;
 }
@@ -698,21 +703,19 @@ h5 {
     width: 100%;
 }
 
-/* WINE CHOICE IMAGES - Defined Space */
+/* WINE CHOICE IMAGES - Defined Space (COMPACT) */
 .card-image {
-    height: 350px;
-    /* Taller space for wine bottles */
+    height: 220px;
+    /* Reduced from 350px */
     width: 100%;
     background-color: var(--surface-color);
-    /* Light gray background */
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     position: relative;
     border-radius: 4px;
-    /* Slight radius */
 }
 
 /* If real image exists */
@@ -721,18 +724,17 @@ h5 {
     width: auto;
     object-fit: contain;
     mix-blend-mode: multiply;
-    /* Better blend with gray bg */
-    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.1));
+    filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.1));
 }
 
-/* Placeholder Bottle Silhouette */
+/* Placeholder Bottle Silhouette (COMPACT) */
 .img-placeholder-bottle {
-    width: 60px;
-    height: 200px;
-    /* Bottle height */
+    width: 40px;
+    /* Smaller */
+    height: 140px;
+    /* Smaller */
     background: #e0e0e0;
-    border-radius: 4px 4px 15px 15px;
-    /* Bottle shape approximation */
+    border-radius: 4px 4px 10px 10px;
     position: relative;
     display: flex;
     align-items: center;
@@ -742,12 +744,12 @@ h5 {
 .img-placeholder-bottle::before {
     content: '';
     position: absolute;
-    top: -30px;
+    top: -20px;
     left: 50%;
     transform: translateX(-50%);
-    width: 20px;
+    width: 15px;
     /* Neck */
-    height: 35px;
+    height: 25px;
     background: #e0e0e0;
 }
 
@@ -755,7 +757,21 @@ h5 {
     content: 'M';
     color: #fff;
     font-family: var(--font-heading);
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: bold;
     opacity: 0.5;
+}
+
+/* COMPACT GRID LAYOUT */
+#wines-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    /* More items per row */
+    gap: 1.5rem;
+    /* Tighter gap */
+}
+
+.menu-card {
+    padding: 1.5rem;
+    /* Ensure consistent padding */
 }
