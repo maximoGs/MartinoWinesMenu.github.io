@@ -9,67 +9,215 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Data - Wines (Real Portfolio)
-    const wines = [
-        // Martino Superiore
+    // --- Internationalization (i18n) ---
+    let currentLang = 'es';
+
+    const translations = {
+        es: {
+            nav_steps: "Menús",
+            nav_tours: "Visitas",
+            nav_tastings: "Degustaciones",
+            nav_wines: "Vinos",
+            hero_subtitle: "Bodega & Restaurante",
+            section_steps: "Experiencias Gastronómicas",
+            step_3_title: "Menú 3 Pasos",
+            step_3_desc: "Una introducción a nuestra cocina de autor, maridada con nuestros clásicos.",
+            step_4_title: "Menú 4 Pasos",
+            step_4_desc: "La experiencia equilibrada. Sabores intensos y maridaje con vinos reserva.",
+            step_7_title: "Menú 7 Pasos",
+            step_7_desc: "Nuestra máxima expresión culinaria. Un viaje completo por los sentidos.",
+            reserve_btn: "Reservar",
+            section_tours: "Visitas & Tours",
+            section_tastings: "Degustaciones",
+            section_wines: "Nuestros Vinos",
+            add_btn: "Agregar",
+            cart_title: "Su Selección",
+            cart_empty: "Su selección está vacía.",
+            cart_notes_label: "Notas / Comentarios:",
+            cart_notes_placeholder: "Aclaraciones, alergias, etc...",
+            total: "Total:",
+            checkout_whatsapp: "Confirmar por WhatsApp",
+            footer_text: "&copy; 2025 Martino Wines. Est. 1901"
+        },
+        en: {
+            nav_steps: "Menus",
+            nav_tours: "Tours",
+            nav_tastings: "Tastings",
+            nav_wines: "Wines",
+            hero_subtitle: "Winery & Restaurant",
+            section_steps: "Gastronomic Experiences",
+            step_3_title: "3-Step Menu",
+            step_3_desc: "An introduction to our signature cuisine, paired with our classics.",
+            step_4_title: "4-Step Menu",
+            step_4_desc: "The balanced experience. Intense flavors paired with reserve wines.",
+            step_7_title: "7-Step Menu",
+            step_7_desc: "Our maximum culinary expression. A complete journey for the senses.",
+            reserve_btn: "Book Now",
+            section_tours: "Visits & Tours",
+            section_tastings: "Tastings",
+            section_wines: "Our Wines",
+            add_btn: "Add",
+            cart_title: "Your Selection",
+            cart_empty: "Your selection is empty.",
+            cart_notes_label: "Notes / Comments:",
+            cart_notes_placeholder: "Special requests, allergies, etc...",
+            total: "Total:",
+            checkout_whatsapp: "Confirm via WhatsApp",
+            footer_text: "&copy; 2025 Martino Wines. Est. 1901"
+        },
+        pt: {
+            nav_steps: "Menus",
+            nav_tours: "Visitas",
+            nav_tastings: "Degustações",
+            nav_wines: "Vinhos",
+            hero_subtitle: "Vinícola & Restaurante",
+            section_steps: "Experiências Gastronômicas",
+            step_3_title: "Menu 3 Passos",
+            step_3_desc: "Uma introdução à nossa cozinha de autor, harmonizada com nossos clássicos.",
+            step_4_title: "Menu 4 Passos",
+            step_4_desc: "A experiência equilibrada. Sabores intensos e harmonização com vinhos reserva.",
+            step_7_title: "Menu 7 Passos",
+            step_7_desc: "Nossa máxima expressão culinária. Uma viagem completa pelos sentidos.",
+            reserve_btn: "Reservar",
+            section_tours: "Visitas & Tours",
+            section_tastings: "Degustações",
+            section_wines: "Nossos Vinhos",
+            add_btn: "Adicionar",
+            cart_title: "Sua Seleção",
+            cart_empty: "Sua seleção está vazia.",
+            cart_notes_label: "Notas / Comentários:",
+            cart_notes_placeholder: "Esclarecimentos, alergias, etc...",
+            total: "Total:",
+            checkout_whatsapp: "Confirmar por WhatsApp",
+            footer_text: "&copy; 2025 Martino Wines. Est. 1901"
+        }
+    };
+
+    function updateLanguage(lang) {
+        currentLang = lang;
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (translations[lang][key]) {
+                if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                    el.placeholder = translations[lang][key];
+                } else {
+                    el.innerText = translations[lang][key];
+                }
+            }
+        });
+        
+        // Update specific static buttons that might not catch data-i18n if dynamically rendered
+        // But for static HTML step buttons, we can add data-i18n to them in HTML or update here:
+        document.querySelectorAll('.reserve-btn').forEach(btn => {
+            btn.innerText = translations[lang]['reserve_btn'];
+        });
+
+        // Re-render Dynamic Sections to update texts
+        renderWines(); 
+        // renderTours(); // If tours have translations inside data
+        // renderTastings(); 
+        updateCartUI(); // To update total/empty text if dynamic
+    }
+
+    // Bind Language Buttons
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const lang = e.target.closest('.lang-btn').getAttribute('data-lang');
+            updateLanguage(lang);
+        });
+    });
+
+
+    // --- Wine Data (Categorized) ---
+    // Structure: Array of Category Objects to preserve order
+    const wineCategories = [
         {
-            id: 'sup-malbec',
-            name: 'Martino Superiore Malbec',
-            desc: 'D.O.C. Luján de Cuyo. 18 meses en barrica. Intenso, ciruelas maduras, chocolate y especias.',
-            price: '$45.000',
-            category: 'red',
-            image: '' 
+            id: 'martino-varietales',
+            title: 'Martino Varietales',
+            wines: [
+                { id: 'mar-marselan', name: 'Martino Marselan', desc: 'Exótico y vibrante.', price: 38000, image: '' },
+                { id: 'mar-sangiovese', name: 'Martino Sangiovese', desc: 'Fresco y vivaz.', price: 35000, image: '' },
+                { id: 'mar-cf', name: 'Martino Cabernet Franc', desc: 'Tipicidad de Agrelo.', price: 38000, image: '' },
+                { id: 'mar-px', name: 'Martino Pedro Ximénez', desc: 'Blanco seco Edición Limitada.', price: 32000, image: '' },
+                { id: 'mar-rose', name: 'Martino Rosé', desc: 'Merlot & Malbec. Fresco.', price: 30000, image: '' }
+            ]
         },
         {
-            id: 'sup-petit',
-            name: 'Martino Superiore Petit Verdot',
-            desc: 'Elegante y complejo. Notas a moras, violetas y un toque mineral. Gran cuerpo.',
-            price: '$48.000',
-            category: 'red',
-            image: ''
-        },
-        // Martino Varietals
-        {
-            id: 'mar-marselan',
-            name: 'Martino Marselan',
-            desc: 'Exótico y vibrante. Frutos negros, toques mentolados y taninos suaves.',
-            price: '$38.000',
-            category: 'red',
-            image: ''
+            id: 'fruto',
+            title: 'Fruto',
+            wines: [
+                { id: 'fruto-malbec', name: 'Fruto Malbec', desc: 'Fruta fresca y jugosa.', price: 28000, image: '' },
+                { id: 'fruto-blanco', name: 'Fruto Blanco', desc: 'Cítrico y floral.', price: 28000, image: '' },
+                { id: 'fruto-rosado', name: 'Fruto Rosado', desc: 'Suave y refrescante.', price: 28000, image: '' }
+            ]
         },
         {
-            id: 'mar-sangiovese',
-            name: 'Martino Sangiovese',
-            desc: 'Fresco y vivaz. Cerezas rojas, acidez equilibrada y final frutado.',
-            price: '$35.000',
-            category: 'red',
-            image: ''
+            id: 'molteni',
+            title: 'Molteni',
+            wines: [
+                { id: 'molteni-andino', name: 'Molteni Andino', desc: 'Blend. Malbec & Cabernet.', price: 55000, image: '' },
+                { id: 'molteni-bordeaux', name: 'Molteni Bordeaux', desc: 'Estilo clásico francés.', price: 60000, image: '' },
+                { id: 'molteni-toscana', name: 'Molteni Toscana', desc: 'Inspiración italiana.', price: 60000, image: '' }
+            ]
         },
         {
-            id: 'mar-cf',
-            name: 'Martino Cabernet Franc',
-            desc: 'Tipicidad de Agrelo. Pimiento rojo asado, pimienta y frutas del bosque.',
-            price: '$38.000',
-            category: 'red',
-            image: ''
+            id: 'superiore',
+            title: 'Martino Superiore',
+            wines: [
+                { id: 'sup-malbec', name: 'Martino Superiore Malbec', desc: 'D.O.C. Luján de Cuyo. 18 meses.', price: 45000, image: '' },
+                { id: 'sup-petit', name: 'Martino Superiore Petit Verdot', desc: 'Elegante y complejo.', price: 48000, image: '' },
+                { id: 'sup-syrah', name: 'Martino Superiore Syrah', desc: 'Especiado y potente.', price: 46000, image: '' }
+            ]
         },
         {
-            id: 'mar-px',
-            name: 'Martino Pedro Ximénez',
-            desc: 'Blanco seco Edición Limitada. Floral, cítrico y de acidez refrescante.',
-            price: '$32.000',
-            category: 'white',
-            image: ''
-        },
-        {
-            id: 'mar-rose',
-            name: 'Martino Rosé',
-            desc: 'Merlot & Malbec. Fresco, sutil color salmón y aromas a frutillas.',
-            price: '$30.000',
-            category: 'white', // Grouped with whites/rosé for filter simplicity or add category
-            image: ''
+            id: 'baldomir',
+            title: 'Baldomir',
+            wines: [
+                { id: 'baldomir-terroir', name: 'Baldomir Terroirs', desc: 'Serie de suelos únicos.', price: 85000, image: '' },
+                { id: 'baldomir-gran', name: 'Baldomir Gran Reserva', desc: 'Icono de la bodega.', price: 120000, image: '' }
+            ]
         }
     ];
+
+    // Combine all for easy search/cart usage if needed, or Cart works by ID? 
+    // We need a flat lookup for addToCart to work easily if strictly by ID
+    const allWines = wineCategories.flatMap(c => c.wines);
+
+    function renderWines() {
+        const grid = document.getElementById('wines-grid');
+        grid.innerHTML = ''; // Clear existing
+
+        // Render by Category
+        wineCategories.forEach(cat => {
+            // Category Header
+            const catHeader = document.createElement('div');
+            catHeader.className = 'wine-category-header';
+            catHeader.innerHTML = `<h3>${cat.title}</h3><hr>`;
+            catHeader.style.gridColumn = "1 / -1"; // Full width
+            catHeader.style.marginTop = "2rem";
+            grid.appendChild(catHeader);
+
+            // Wines in this category
+            cat.wines.forEach(wine => {
+                const card = document.createElement('div');
+                card.className = 'menu-card wine-card';
+                card.innerHTML = `
+                    <div class="card-image">
+                       ${wine.image ? `<img src="${wine.image}" alt="${wine.name}">` : '<div class="img-placeholder-bottle"></div>'}
+                    </div>
+                    <div class="card-header">
+                        <h3>${wine.name}</h3>
+                        <p class="desc">${wine.desc}</p>
+                        <span class="card-price">$${wine.price.toLocaleString('es-AR')}</span>
+                    </div>
+                    <button class="add-btn" onclick="addToCart('${wine.id}', '${wine.name}', ${wine.price})">
+                        ${translations[currentLang]['add_btn']}
+                    </button>
+                `;
+                grid.appendChild(card);
+            });
+        });
+    }
 
     // Tours Data
     const tours = [
@@ -320,6 +468,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderWines();
     renderTours();
     renderTastings();
+    updateCartUI();
 
     // Filters
     const filterBtns = document.querySelectorAll('.wine-cat-btn');

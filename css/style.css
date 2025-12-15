@@ -258,6 +258,84 @@ h5 {
     margin: 0;
 }
 
+/* Wine Category Header */
+.wine-category-header {
+    width: 100%;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.wine-category-header h3 {
+    font-size: 2.2rem;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.wine-category-header hr {
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent);
+    border: none;
+    margin: 0 auto;
+}
+
+/* Bottle Placeholder */
+.img-placeholder-bottle {
+    width: 60px;
+    height: 200px;
+    background: #e0e0e0;
+    margin: 0 auto;
+    border-radius: 5px 5px 20px 20px;
+    position: relative;
+}
+
+.img-placeholder-bottle::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 25px;
+    height: 40px;
+    background: #333;
+    /* Foil */
+}
+
+/* Formal Add Button */
+.add-btn {
+    background: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--text-primary);
+    padding: 0.6rem 1.5rem;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 700;
+    margin-top: 1rem;
+    font-family: var(--font-heading);
+}
+
+.add-btn:hover {
+    background: var(--text-primary);
+    color: #fff;
+}
+
+.card-header h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.desc {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
 .price {
     font-size: 1.5rem;
     font-family: var(--font-heading);
