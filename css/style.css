@@ -659,40 +659,7 @@ h5 {
 
 
 /* PREMIUM FILTER BUTTONS */
-.wine-categories {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    margin-bottom: 4rem;
-    flex-wrap: wrap;
-}
-
-.wine-cat-btn {
-    background: transparent;
-    color: var(--text-secondary);
-    border: none;
-    border-bottom: 2px solid transparent;
-    padding: 0.5rem 1rem;
-    font-family: var(--font-heading);
-    font-size: 1.1rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    cursor: pointer;
-    transition: all 0.3s;
-    opacity: 0.7;
-}
-
-.wine-cat-btn:hover {
-    color: var(--text-primary);
-    opacity: 1;
-}
-
-.wine-cat-btn.active {
-    color: var(--text-primary);
-    border-bottom: 2px solid var(--accent);
-    opacity: 1;
-    font-weight: 700;
-}
+/* PREMIUM FILTER BUTTONS REMOVED */
 
 /* ACTIVE LINK STATE */
 .nav-link.active {
@@ -807,6 +774,8 @@ h5 {
     scrollbar-width: thin;
     /* Firefox */
     scrollbar-color: var(--accent) #f0f0f0;
+    scroll-snap-type: x mandatory;
+    /* Snap behavior */
 }
 
 /* Custom Scrollbar */
@@ -834,4 +803,12 @@ h5 {
     border: 1px solid rgba(0, 0, 0, 0.05);
     /* Subtle border */
     background: #fff;
+    scroll-snap-align: start;
+    /* Snap items */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.wine-line-grid .menu-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
