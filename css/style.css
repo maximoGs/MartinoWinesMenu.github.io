@@ -876,22 +876,35 @@ h5 {
     mix-blend-mode: multiply;
 }
 
+/* TABLET OPTIMIZATION */
+@media (max-width: 1024px) {
+    .nav-links {
+        gap: 1.5rem;
+        /* Reduce gap on tablet */
+    }
+
+    .navbar {
+        padding: 0 2rem;
+    }
+}
+
 /* MOBILE OPTIMIZATION */
 @media (max-width: 768px) {
 
-    /* Navbar Upgrade: Compact Right-Aligned Layout */
+    /* Navbar Upgrade: Compact Layout */
     .navbar {
         height: auto;
         padding: 0.5rem 1rem;
         flex-direction: column-reverse;
         /* Controls on Top, Links below */
         align-items: flex-end;
-        /* Align everything to the right */
+        /* Align controls to right */
         gap: 0.25rem;
         /* Tighter gap */
     }
 
     .nav-controls {
+        /* Keep controls on right */
         position: relative;
         right: auto;
         width: auto;
@@ -907,8 +920,10 @@ h5 {
         overflow-x: auto;
         white-space: nowrap;
         padding: 0.25rem 0;
-        justify-content: flex-end;
-        /* Align links to right */
+
+        /* SAFE ALIGNMENT: Start from left to prevent cutting off items on small screens */
+        justify-content: flex-start;
+
         -webkit-overflow-scrolling: touch;
 
         /* Hide scrollbar */
