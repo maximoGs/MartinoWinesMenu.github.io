@@ -197,228 +197,340 @@ h5 {
     background-color: var(--accent);
 }
 
-/* Step Menus */
+/* Step Menus - Refined Layout */
 .steps-grid {
     display: flex;
     flex-direction: column;
-    gap: 4rem;
-    max-width: 900px;
+    gap: 3rem;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 0 1rem;
 }
 
 .step-card {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
     background: #fff;
-    padding: 3rem;
     border: 1px solid var(--border-color);
     box-shadow: var(--shadow-sm);
     transition: all 0.4s ease;
+    overflow: hidden;
+    /* For image consistent rounded corners */
+}
+
+/* Image Container */
+.step-image-container {
+    flex: 0 0 300px;
+    /* Fixed width for image */
+    background: #f0f0f0;
     position: relative;
-    text-align: left;
+    min-height: 250px;
 }
 
-@media (max-width: 768px) {
-    .step-card {
-        flex-direction: column;
-        text-align: center;
-        gap: 2rem;
-    }
+.img-placeholder {
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="%23ccc" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>') no-repeat center center;
+    background-size: 50%;
+    background-color: #f8f8f8;
 }
 
-.step-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
-    border-color: var(--accent);
+/* Details Section */
+.step-details {
+    flex: 1;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .step-header {
-    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 1rem;
 }
 
 .step-header h3 {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
     color: var(--text-primary);
-}
-
-.step-content {
-    flex: 2;
-    padding: 0 2rem;
+    margin: 0;
 }
 
 .price {
-    display: block;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     font-family: var(--font-heading);
     color: var(--accent);
-    margin: 0;
-    position: relative;
+    font-weight: 700;
+}
+
+.step-content {
+    margin-bottom: 2rem;
 }
 
 .step-desc {
     color: var(--text-secondary);
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-style: italic;
-    margin: 0;
+    line-height: 1.6;
 }
 
-.reserve-btn {
-    background: transparent;
-    color: var(--text-primary);
-    border: 2px solid var(--text-primary);
-    padding: 0.8rem 2rem;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    letter-spacing: 2px;
-    cursor: pointer;
-    transition: all 0.3s;
-    font-weight: 700;
+.step-action {
+    text-align: right;
 }
 
-.reserve-btn:hover {
-    background: var(--text-primary);
-    color: #fff;
+/* Responsive Steps */
+@media (max-width: 768px) {
+    .step-card {
+        flex-direction: column;
+    }
+
+    .step-image-container {
+        flex: 0 0 200px;
+        width: 100%;
+    }
+
+    .step-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
 }
 
 /* Featured Card */
 .step-card.featured {
-    background: #111;
+    border: 2px solid var(--accent);
+    transform: scale(1.02);
+}
+
+.step-card.featured .step-header h3 {
+    color: var(--accent);
+}
+
+
+/* --- CART DRAWER REDESIGN --- */
+
+.cart-fab {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 60px;
+    height: 60px;
+    background: #000;
     color: #fff;
-    border: 1px solid var(--accent);
-    transform: scale(1.05);
-}
-
-.step-card.featured:hover {
-    transform: scale(1.05) translateY(-5px);
-}
-
-.step-card.featured .step-header h3,
-.step-card.featured .price {
-    color: #fff;
-}
-
-.step-card.featured .step-desc {
-    color: #ccc;
-}
-
-.step-card.featured .reserve-btn {
-    border-color: #fff;
-    color: #fff;
-}
-
-.step-card.featured .reserve-btn:hover {
-    background: var(--accent);
-    border-color: var(--accent);
-}
-
-/* Tours & Tastings */
-.dynamic-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
-.placeholder-text {
-    text-align: center;
-    width: 100%;
-    color: var(--text-secondary);
-    padding: 2rem;
-}
-
-/* Wines Section */
-.wine-categories {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    margin-bottom: 3rem;
-    flex-wrap: wrap;
-}
-
-.wine-cat-btn {
-    background: transparent;
-    border: none;
-    border-bottom: 2px solid transparent;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    font-family: var(--font-heading);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 1rem;
-    color: var(--text-secondary);
-    transition: all 0.3s;
-}
-
-.wine-cat-btn.active,
-.wine-cat-btn:hover {
-    color: var(--text-primary);
-    border-color: var(--accent);
-}
-
-.menu-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 2.5rem;
-}
-
-/* Wine Card (Generated by JS) */
-.menu-card {
-    background: #fff;
-    border: 1px solid transparent;
-    transition: all 0.3s;
-    padding: 1.5rem;
-    text-align: center;
-}
-
-.menu-card:hover {
-    border-color: var(--border-color);
-    box-shadow: var(--shadow-sm);
-}
-
-.card-image {
-    width: 100%;
-    height: 300px;
-    /* Tall for bottles */
-    object-fit: contain;
-    margin-bottom: 1.5rem;
-    background: #fdfdfd;
-    /* Placeholder for bottle image */
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+    border: 2px solid var(--accent);
+    transition: transform 0.3s;
 }
 
-.card-image img {
-    max-height: 100%;
-    max-width: 100%;
+.cart-fab:hover {
+    transform: scale(1.1);
 }
 
-.card-header h3 {
-    font-size: 1.3rem;
-    margin-bottom: 0.5rem;
+.cart-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 0.8rem;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border: 2px solid #fff;
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.3s;
 }
 
-.desc {
-    font-size: 0.95rem;
-    color: var(--text-secondary);
-    margin-bottom: 1rem;
+.cart-count.visible {
+    opacity: 1;
+    transform: scale(1);
 }
 
-.card-price {
+/* Modal / Drawer Overlay */
+.cart-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 2000;
+    /* High z-index */
+    display: flex;
+    justify-content: flex-end;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.cart-modal.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* Drawer Content */
+.cart-content {
+    width: 100%;
+    max-width: 450px;
+    /* Wider drawer */
+    background: #fff;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    /* Apple-like easing */
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.2);
+}
+
+.cart-modal.active .cart-content {
+    transform: translateX(0);
+}
+
+.cart-header {
+    padding: 1.5rem;
+    background: #000;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart-header h2 {
+    font-size: 1.4rem;
+    margin: 0;
     font-family: var(--font-heading);
+    letter-spacing: 1px;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.cart-items {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.5rem;
+}
+
+.cart-item-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.cart-item-info strong {
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 0.2rem;
+}
+
+.cart-item-info small {
     color: var(--accent);
-    font-size: 1.2rem;
     font-weight: 700;
 }
 
-.cart-notes {
-    padding: 0 1.5rem 1.5rem 1.5rem;
-    border-bottom: 1px solid var(--border-color);
+.cart-item-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: #f9f9f9;
+    padding: 0.3rem;
+    border-radius: 4px;
 }
 
-/* Footer */
+.cart-action-btn {
+    width: 25px;
+    height: 25px;
+    border: none;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+/* Notes Field */
+.cart-notes {
+    padding: 1.5rem;
+    background: #fdfdfd;
+    border-top: 1px solid #eee;
+}
+
+.cart-notes textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: var(--radius-md);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    transition: border-color 0.3s;
+}
+
+.cart-notes textarea:focus {
+    border-color: var(--accent);
+    outline: none;
+}
+
+/* Footer Section */
+.cart-footer {
+    padding: 1.5rem;
+    background: #fff;
+    border-top: 1px solid var(--border-color);
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.checkout-btn {
+    width: 100%;
+    padding: 1rem;
+    background: #25D366;
+    /* WhatsApp Green */
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: filter 0.3s;
+}
+
+.checkout-btn:hover {
+    filter: brightness(0.9);
+}
+
 .main-footer {
     background: #0a0a0a;
     color: #888;
