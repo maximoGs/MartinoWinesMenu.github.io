@@ -150,46 +150,51 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 'martino-varietales',
             title: 'Martino Varietales',
             wines: [
-                { id: 'mar-marselan', name: 'Martino Marselan', desc: 'Exótico y vibrante.', price: 38000, image: '' },
-                { id: 'mar-sangiovese', name: 'Martino Sangiovese', desc: 'Fresco y vivaz.', price: 35000, image: '' },
-                { id: 'mar-cf', name: 'Martino Cabernet Franc', desc: 'Tipicidad de Agrelo.', price: 38000, image: '' },
-                { id: 'mar-px', name: 'Martino Pedro Ximénez', desc: 'Blanco seco Edición Limitada.', price: 32000, image: '' },
-                { id: 'mar-rose', name: 'Martino Rosé', desc: 'Merlot & Malbec. Fresco.', price: 30000, image: '' }
+                { id: 'mar-px', name: 'Martino Pedro Ximénez', desc: 'Edición Limitada. Blanco frutado y fresco.', price: 19900, image: '' },
+                { id: 'mar-rose', name: 'Martino Rosé', desc: 'Fresco, sutil y elegante.', price: 19900, image: '' },
+                { id: 'mar-sangiovese', name: 'Martino Sangiovese', desc: 'Fresco y vivaz.', price: 19900, image: '' },
+                { id: 'mar-tempranillo', name: 'Martino Tempranillo', desc: 'Estructurado y amable.', price: 19900, image: '' },
+                { id: 'mar-marselan', name: 'Martino Marselan', desc: 'Exótico y vibrante.', price: 19900, image: '' },
+                { id: 'mar-malbec', name: 'Martino Malbec', desc: 'El clásico argentino.', price: 19900, image: '' },
+                { id: 'mar-cf', name: 'Martino Cabernet Franc', desc: 'Tipicidad de Agrelo.', price: 19900, image: '' }
             ]
         },
         {
             id: 'fruto',
             title: 'Fruto',
             wines: [
-                { id: 'fruto-malbec', name: 'Fruto Malbec', desc: 'Fruta fresca y jugosa.', price: 28000, image: '' },
-                { id: 'fruto-blanco', name: 'Fruto Blanco', desc: 'Cítrico y floral.', price: 28000, image: '' },
-                { id: 'fruto-rosado', name: 'Fruto Rosado', desc: 'Suave y refrescante.', price: 28000, image: '' }
+                { id: 'fruto-blanco', name: 'Fruto Blanco', desc: 'Cítrico y floral.', price: 23500, image: '' },
+                { id: 'fruto-clarette', name: 'Fruto Clarette', desc: 'Un estilo único y ligero.', price: 23500, image: '' },
+                { id: 'fruto-tinto', name: 'Fruto Tinto', desc: 'Fruta fresca y jugosa.', price: 23500, image: '' }
             ]
         },
         {
             id: 'molteni',
             title: 'Molteni',
             wines: [
-                { id: 'molteni-andino', name: 'Molteni Andino', desc: 'Blend. Malbec & Cabernet.', price: 55000, image: '' },
-                { id: 'molteni-bordeaux', name: 'Molteni Bordeaux', desc: 'Estilo clásico francés.', price: 60000, image: '' },
-                { id: 'molteni-toscana', name: 'Molteni Toscana', desc: 'Inspiración italiana.', price: 60000, image: '' }
+                { id: 'molteni-toscana', name: 'Molteni Toscano', desc: 'Inspiración italiana.', price: 32000, image: '' },
+                { id: 'molteni-bordeaux', name: 'Molteni Bordeaux', desc: 'Estilo clásico francés.', price: 32000, image: '' },
+                { id: 'molteni-andino', name: 'Molteni Andino', desc: 'Blend. Malbec & Cabernet.', price: 32000, image: '' }
             ]
         },
         {
             id: 'superiore',
             title: 'Martino Superiore',
             wines: [
-                { id: 'sup-malbec', name: 'Martino Superiore Malbec', desc: 'D.O.C. Luján de Cuyo. 18 meses.', price: 45000, image: '' },
-                { id: 'sup-petit', name: 'Martino Superiore Petit Verdot', desc: 'Elegante y complejo.', price: 48000, image: '' },
-                { id: 'sup-syrah', name: 'Martino Superiore Syrah', desc: 'Especiado y potente.', price: 46000, image: '' }
+                { id: 'sup-malbec', name: 'Martino Superiore Malbec', desc: 'D.O.C. Luján de Cuyo. 18 meses.', price: 37500, image: '' },
+                { id: 'sup-merlot', name: 'Martino Superiore Merlot', desc: 'Suave, redondo y complejo.', price: 37500, image: '' },
+                { id: 'sup-syrah', name: 'Martino Superiore Syrah', desc: 'Especiado y potente.', price: 37500, image: '' },
+                { id: 'sup-petit', name: 'Martino Superiore Petit Verdot', desc: 'Elegante y complejo.', price: 37500, image: '' }
             ]
         },
         {
             id: 'baldomir',
             title: 'Baldomir',
             wines: [
-                { id: 'baldomir-terroir', name: 'Baldomir Terroirs', desc: 'Serie de suelos únicos.', price: 85000, image: '' },
-                { id: 'baldomir-gran', name: 'Baldomir Gran Reserva', desc: 'Icono de la bodega.', price: 120000, image: '' }
+                { id: 'baldomir-chacayes', name: 'Baldomir Terroir Series Chacayes Malbec 2018', desc: 'Valle de Uco. Carácter mineral.', price: 85000, image: '' },
+                { id: 'baldomir-vistalba', name: 'Baldomir Terroir Series Vistalba Malbec 2014', desc: 'Luján de Cuyo. Elegancia clásica.', price: 85000, image: '' },
+                { id: 'baldomir-agrelo', name: 'Baldomir Terroir Series Agrelo Cabernet Franc 2019', desc: 'Tipicidad varietal única.', price: 85000, image: '' },
+                { id: 'baldomir-gran', name: 'Baldomir Gran Malbec 2019', desc: 'Icono de la bodega.', price: 132000, image: '' }
             ]
         }
     ];
