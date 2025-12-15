@@ -83,7 +83,8 @@ h5 {
     gap: 3rem;
     flex: 1;
     /* Allow to take space */
-    justify-content: left;
+    display: flex;
+    justify-content: center;
     /* Center links in available space */
 }
 
@@ -97,8 +98,45 @@ h5 {
     font-weight: 700;
     transition: color 0.3s;
     position: relative;
+    /* Fixed invalid 'right' */
     white-space: nowrap;
     /* Prevent breaking */
+}
+
+/* ... existing code ... */
+
+/* Premium Language Buttons */
+.lang-btn {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    padding: 4px 10px;
+    /* Smaller padding */
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    /* Smaller font */
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    border-radius: 20px;
+    /* Pill shape */
+    color: var(--text-secondary);
+}
+
+/* ... existing code ... */
+
+/* MOBILE OPTIMIZATION */
+@media (max-width: 768px) {
+    /* ... existing code ... */
+
+    .nav-link {
+        font-size: 0.8rem;
+        /* Smaller mobile links */
+        padding: 0.15rem 0;
+        /* Tighter spacing */
+        display: block;
+        text-align: right;
+    }
 }
 
 .nav-link::after {
