@@ -197,165 +197,149 @@ h5 {
     background-color: var(--accent);
 }
 
-/* Step Menus - Refined Layout */
-.steps-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 0 1rem;
-}
-
-.step-card {
-    display: flex;
-    background: #fff;
-    border: 1px solid var(--border-color);
-    box-shadow: var(--shadow-sm);
-    transition: all 0.4s ease;
-    overflow: hidden;
-    /* For image consistent rounded corners */
-}
-
-/* Image Container */
-.step-image-container {
-    flex: 0 0 300px;
-    /* Fixed width for image */
-    background: #f0f0f0;
-    position: relative;
-    min-height: 250px;
-}
-
-.img-placeholder {
-    width: 100%;
-    height: 100%;
-    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="%23ccc" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>') no-repeat center center;
-    background-size: 50%;
-    background-color: #f8f8f8;
-}
-
-/* Details Section */
-.step-details {
-    flex: 1;
-    padding: 2.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.step-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 1rem;
-    border-bottom: 1px solid #f0f0f0;
-    padding-bottom: 1rem;
-}
-
-.step-header h3 {
-    font-size: 1.8rem;
-    color: var(--text-primary);
-    margin: 0;
-}
-
-/* Wine Category Header */
-.wine-category-header {
-    width: 100%;
-    margin-bottom: 2rem;
-    text-align: center;
-}
-
-.wine-category-header h3 {
-    font-size: 2.2rem;
-    color: var(--text-primary);
-    margin-bottom: 0.5rem;
+/* PREMIUM BUTTON STYLE - SOLID */
+.reserve-btn,
+.add-btn,
+.checkout-btn {
+    background-color: var(--text-primary);
+    /* Solid Black */
+    color: #fff;
+    border: none;
+    padding: 1rem 2rem;
     font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 2px;
-}
-
-.wine-category-header hr {
-    width: 60px;
-    height: 3px;
-    background-color: var(--accent);
-    border: none;
-    margin: 0 auto;
-}
-
-/* Bottle Placeholder */
-.img-placeholder-bottle {
-    width: 60px;
-    height: 200px;
-    background: #e0e0e0;
-    margin: 0 auto;
-    border-radius: 5px 5px 20px 20px;
-    position: relative;
-}
-
-.img-placeholder-bottle::after {
-    content: '';
-    position: absolute;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 25px;
-    height: 40px;
-    background: #333;
-    /* Foil */
-}
-
-/* Formal Add Button */
-.add-btn {
-    background: transparent;
-    color: var(--text-primary);
-    border: 1px solid var(--text-primary);
-    padding: 0.6rem 1.5rem;
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    letter-spacing: 1.5px;
     cursor: pointer;
-    transition: all 0.3s;
-    font-weight: 700;
-    margin-top: 1rem;
-    font-family: var(--font-heading);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    min-width: 160px;
+    /* Consistent width */
+    text-align: center;
+    display: inline-block;
 }
 
-.add-btn:hover {
-    background: var(--text-primary);
+.reserve-btn:hover,
+.add-btn:hover,
+.checkout-btn:hover {
+    background-color: var(--accent);
+    /* Gold on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     color: #fff;
 }
 
-.card-header h3 {
-    font-size: 1.3rem;
-    margin-bottom: 0.5rem;
+/* Reset specific add-btn overrides to match above */
+.add-btn {
+    margin-top: 1.5rem;
+    width: 100%;
+    /* Fill card width for wines */
 }
 
-.desc {
-    font-size: 0.95rem;
-    color: var(--text-secondary);
-    margin-bottom: 1rem;
+/* WINE SECTION - CLEAN LINES */
+.wine-category-header {
+    width: 100%;
+    margin: 4rem 0 3rem 0;
+    text-align: center;
+    position: relative;
+    padding-top: 2rem;
+}
+
+/* The Line */
+.wine-category-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 1px;
+    background: var(--accent);
+}
+
+.wine-category-header h3 {
+    font-size: 2.5rem;
+    color: var(--text-primary);
+    font-family: var(--font-heading);
+    font-weight: 400;
+    /* More elegant */
+    letter-spacing: 3px;
+    margin: 0;
+}
+
+.wine-category-header hr {
+    display: none;
+    /* Removed old hr */
+}
+
+
+/* STEP MENU - REFINED ALIGNMENT */
+.step-card {
+    display: flex;
+    background: #fff;
+    border: none;
+    /* Clean look */
+    box-shadow: var(--shadow-sm);
+    transition: all 0.4s ease;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    /* Spacing */
+}
+
+.step-details {
+    padding: 3rem 4rem;
+    /* More breathing room */
+}
+
+.step-header {
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 1rem;
 }
 
 .price {
-    font-size: 1.5rem;
-    font-family: var(--font-heading);
+    font-size: 1.8rem;
     color: var(--accent);
-    font-weight: 700;
 }
 
-.step-content {
-    margin-bottom: 2rem;
+/* Placeholder refinement */
+.img-placeholder {
+    background: #f4f4f4;
+    /* solid gray, no SVG clutter */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.step-desc {
-    color: var(--text-secondary);
-    font-size: 1rem;
-    font-style: italic;
-    line-height: 1.6;
+.img-placeholder::after {
+    content: 'MARTINO';
+    font-family: var(--font-heading);
+    color: #ddd;
+    letter-spacing: 5px;
+    font-size: 1.2rem;
 }
 
-.step-action {
-    text-align: right;
+
+/* MOBILE RESPONSIVE FIXES */
+@media (max-width: 768px) {
+    .step-details {
+        padding: 2rem;
+    }
+
+    .step-card {
+        flex-direction: column;
+    }
+
+    .step-image-container {
+        height: 200px;
+        flex: 0 0 200px;
+    }
+
+    .nav-links {
+        display: none;
+        /* Keep hidden for now or implement burger */
+    }
 }
 
 /* Responsive Steps */
