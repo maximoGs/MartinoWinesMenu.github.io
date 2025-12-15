@@ -847,3 +847,59 @@ h5 {
     /* Ensure they stand out */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
+
+/* LOGO FUSION */
+.main-logo {
+    /* Blend logo background with container */
+    mix-blend-mode: multiply;
+}
+
+/* MOBILE OPTIMIZATION */
+@media (max-width: 768px) {
+
+    /* Navbar Upgrade: 2-Row Layout */
+    .navbar {
+        height: auto;
+        padding: 0.5rem 1rem;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .nav-controls {
+        position: relative;
+        right: auto;
+        width: 100%;
+        justify-content: flex-end;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-links {
+        width: 100%;
+        gap: 1.5rem;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding: 0.5rem 0;
+        justify-content: flex-start;
+        -webkit-overflow-scrolling: touch;
+
+        /* Hide scrollbar */
+        scrollbar-width: none;
+    }
+
+    .nav-links::-webkit-scrollbar {
+        display: none;
+    }
+
+    .nav-link {
+        font-size: 0.85rem;
+        padding: 0.5rem 0;
+    }
+
+    /* Adjust content padding for taller mobile header */
+    .page-hero,
+    .brand-hero {
+        padding-top: 140px;
+    }
+}
