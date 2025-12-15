@@ -699,8 +699,7 @@ h5 {
 }
 
 
-/* PREMIUM FILTER BUTTONS */
-/* PREMIUM FILTER BUTTONS REMOVED */
+
 
 /* ACTIVE LINK STATE */
 .nav-link.active {
@@ -779,10 +778,7 @@ h5 {
     grid-template-columns: none !important;
 }
 
-.menu-card {
-    padding: 1.5rem;
-    /* Ensure consistent padding */
-}
+
 
 /* WINE SECTIONS - STRICT HORIZONTAL LINES */
 .wines-main-fluid {
