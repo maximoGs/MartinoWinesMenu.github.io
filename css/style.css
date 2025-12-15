@@ -601,48 +601,74 @@ h5 {
     margin-top: 4rem;
 }
 
-.main-footer p {
+/* PAGE HERO */
+.page-hero {
+    padding-top: 140px;
+    padding-bottom: 3rem;
+    text-align: center;
+    background: linear-gradient(to bottom, #fff, var(--surface-color));
+    margin-bottom: 2rem;
+}
+
+.page-subtitle {
     font-family: var(--font-heading);
-    letter-spacing: 1px;
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-top: 1rem;
 }
 
-/* Animations */
-@keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* SECTION DIVIDER */
+.section-divider {
+    height: 1px;
+    background: #e0e0e0;
+    width: 60%;
+    margin: 4rem auto;
 }
 
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* PREMIUM FILTER BUTTONS */
+.wine-categories {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+    flex-wrap: wrap;
 }
 
-/* Mobile Responsive */
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-        /* Todo: Hamburger menu */
-    }
+.wine-cat-btn {
+    background: transparent;
+    color: var(--text-secondary);
+    border: none;
+    border-bottom: 2px solid transparent;
+    padding: 0.5rem 1rem;
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s;
+    opacity: 0.7;
+}
 
-    .brand-hero {
-        padding-top: 120px;
-    }
+.wine-cat-btn:hover {
+    color: var(--text-primary);
+    opacity: 1;
+}
 
-    .section-title {
-        font-size: 2.2rem;
-    }
+.wine-cat-btn.active {
+    color: var(--text-primary);
+    border-bottom: 2px solid var(--accent);
+    opacity: 1;
+    font-weight: 700;
+}
+
+/* ACTIVE LINK STATE */
+.nav-link.active {
+    color: var(--accent);
+}
+
+.nav-link.active::after {
+    width: 100%;
 }

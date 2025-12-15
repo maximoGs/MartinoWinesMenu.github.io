@@ -26,10 +26,9 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-links">
-            <a href="#step-menus" class="nav-link" data-i18n="nav_steps">Menus</a>
-            <a href="#tours" class="nav-link" data-i18n="nav_tours">Visitas</a>
-            <a href="#tastings" class="nav-link" data-i18n="nav_tastings">Degustaciones</a>
-            <a href="#wines" class="nav-link" data-i18n="nav_wines">Vinos</a>
+            <a href="index.html" class="nav-link active" data-i18n="nav_steps">Menus</a>
+            <a href="experiences.html" class="nav-link" data-i18n="nav_tours">Visitas & Degustaciones</a>
+            <a href="wines.html" class="nav-link" data-i18n="nav_wines">Vinos</a>
         </div>
         <div class="nav-controls">
             <button class="lang-btn" data-lang="es">ES</button>
@@ -44,14 +43,12 @@
             <div class="logo-container">
                 <img src="assets/martino-logo.png" alt="Martino Wines" class="main-logo">
             </div>
-            <p class="brand-subtitle">WINERY & RESTAURANT</p>
+            <p class="brand-subtitle" data-i18n="hero_subtitle">WINERY & RESTAURANT</p>
         </header>
 
-        <!-- Sections -->
-
-        <!-- Step Menus -->
+        <!-- Step Menus (Restaurant) -->
         <section id="step-menus" class="content-section">
-            <h2 class="section-title">Experiencias Gastronómicas</h2>
+            <h2 class="section-title" data-i18n="section_steps">Experiencias Gastronómicas</h2>
             <div class="steps-grid">
                 <!-- 3 Steps -->
                 <div class="step-card">
@@ -61,15 +58,15 @@
                     </div>
                     <div class="step-details">
                         <div class="step-header">
-                            <h3>Menú 3 Pasos</h3>
+                            <h3 data-i18n="step_3_title">Menú 3 Pasos</h3>
                             <span class="price">$60.000</span>
                         </div>
                         <div class="step-content">
-                            <p class="step-desc">Una introducción a nuestra cocina de autor, maridada con nuestros
-                                clásicos.</p>
+                            <p class="step-desc" data-i18n="step_3_desc">Una introducción a nuestra cocina de autor,
+                                maridada con nuestros clásicos.</p>
                         </div>
                         <div class="step-action">
-                            <button class="reserve-btn">Reservar</button>
+                            <button class="reserve-btn" data-i18n="reserve_btn">Reservar</button>
                         </div>
                     </div>
                 </div>
@@ -81,15 +78,15 @@
                     </div>
                     <div class="step-details">
                         <div class="step-header">
-                            <h3>Menú 4 Pasos</h3>
+                            <h3 data-i18n="step_4_title">Menú 4 Pasos</h3>
                             <span class="price">$90.000</span>
                         </div>
                         <div class="step-content">
-                            <p class="step-desc">La experiencia equilibrada. Sabores intensos y maridaje con vinos
-                                reserva.</p>
+                            <p class="step-desc" data-i18n="step_4_desc">La experiencia equilibrada. Sabores intensos y
+                                maridaje con vinos reserva.</p>
                         </div>
                         <div class="step-action">
-                            <button class="reserve-btn">Reservar</button>
+                            <button class="reserve-btn" data-i18n="reserve_btn">Reservar</button>
                         </div>
                     </div>
                 </div>
@@ -101,52 +98,20 @@
                     </div>
                     <div class="step-details">
                         <div class="step-header">
-                            <h3>Menú 7 Pasos</h3>
+                            <h3 data-i18n="step_7_title">Menú 7 Pasos</h3>
                             <span class="price">$120.000</span>
                         </div>
                         <div class="step-content">
-                            <p class="step-desc">Nuestra máxima expresión culinaria. Un viaje completo por los sentidos.
-                            </p>
+                            <p class="step-desc" data-i18n="step_7_desc">Nuestra máxima expresión culinaria. Un viaje
+                                completo por los sentidos.</p>
                         </div>
                         <div class="step-action">
-                            <button class="reserve-btn">Reservar</button>
+                            <button class="reserve-btn" data-i18n="reserve_btn">Reservar</button>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-
-        <!-- Tours -->
-        <section id="tours" class="content-section">
-            <h2 class="section-title">Visitas & Tours</h2>
-            <div id="tours-content" class="dynamic-grid">
-                <!-- Javascript will inject or Static content -->
-                <p class="placeholder-text">Descubra la historia de nuestra bodega centenaria.</p>
-            </div>
-        </section>
-
-        <!-- Tastings -->
-        <section id="tastings" class="content-section">
-            <h2 class="section-title">Degustaciones</h2>
-            <div id="tastings-content" class="dynamic-grid">
-                <p class="placeholder-text">Pruebe nuestra selección de vinos premiados.</p>
-            </div>
-        </section>
-
-        <!-- Wines -->
-        <section id="wines" class="content-section">
-            <h2 class="section-title">Nuestros Vinos</h2>
-            <!-- Category Filter for Wines (Red, White, Sparkling) -->
-            <div class="wine-categories">
-                <button class="wine-cat-btn active" data-filter="all">Todos</button>
-                <button class="wine-cat-btn" data-filter="red">Tintos</button>
-                <button class="wine-cat-btn" data-filter="white">Blancos</button>
-            </div>
-            <div id="wines-grid" class="menu-grid">
-                <!-- JS Injection for wines -->
-            </div>
-        </section>
-
     </main>
 
     <!-- Footer -->

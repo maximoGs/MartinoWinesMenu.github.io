@@ -31,6 +31,9 @@ document.addEventListener('DOMContentLoaded', () => {
             section_tastings: "Degustaciones",
             section_wines: "Nuestros Vinos",
             add_btn: "Agregar",
+            btn_all: "Todos",
+            btn_reds: "Tintos",
+            btn_whites: "Blancos",
             cart_title: "Su Selección",
             cart_empty: "Su selección está vacía.",
             cart_notes_label: "Notas / Comentarios:",
@@ -57,6 +60,9 @@ document.addEventListener('DOMContentLoaded', () => {
             section_tastings: "Tastings",
             section_wines: "Our Wines",
             add_btn: "Add",
+            btn_all: "All",
+            btn_reds: "Reds",
+            btn_whites: "Whites",
             cart_title: "Your Selection",
             cart_empty: "Your selection is empty.",
             cart_notes_label: "Notes / Comments:",
@@ -83,6 +89,9 @@ document.addEventListener('DOMContentLoaded', () => {
             section_tastings: "Degustações",
             section_wines: "Nossos Vinhos",
             add_btn: "Adicionar",
+             btn_all: "Todos",
+            btn_reds: "Tintos",
+            btn_whites: "Brancos",
             cart_title: "Sua Seleção",
             cart_empty: "Sua seleção está vazia.",
             cart_notes_label: "Notas / Comentários:",
@@ -127,6 +136,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+
+    // --- Page Routing / Detection ---
+    const path = window.location.pathname;
+    const isWinesPage = path.includes('wines.html');
+    const isExperiencesPage = path.includes('experiences.html');
+    const isIndexPage = !isWinesPage && !isExperiencesPage; 
 
     // --- Wine Data (Categorized) ---
     // Structure: Array of Category Objects to preserve order
@@ -183,8 +198,71 @@ document.addEventListener('DOMContentLoaded', () => {
     // We need a flat lookup for addToCart to work easily if strictly by ID
     const allWines = wineCategories.flatMap(c => c.wines);
 
+    // --- Real Tours Data ---
+    const toursData = [
+        {
+            id: 'tour-clasica',
+            title_es: "Visita y Degustación Clásica",
+            desc_es: "Recorrido histórico por la bodega de 1901 + Degustación de 3 vinos Varietales.",
+            title_en: "Classic Tour & Tasting",
+            desc_en: "Historical tour of the 1901 winery + Tasting of 3 Varietal wines.",
+            title_pt: "Visita e Degustação Clássica",
+            desc_pt: "Tour histórico pela vinícola de 1901 + Degustação de 3 vinhos Varietais.",
+            price: 20000,
+            image: ''
+        },
+        {
+            id: 'tour-premium',
+            title_es: "Experiencia Martino Superiore",
+            desc_es: "Visita privada + Degustación dirigida de línea Superiore y Baldomir. Incluye tabla de quesos.",
+            title_en: "Martino Superiore Experience",
+            desc_en: "Private tour + Guided tasting of Superiore and Baldomir lines. Cheese platter included.",
+            title_pt: "Experiência Martino Superiore",
+            desc_pt: "Visita privada + Degustação guiada das linhas Superiore e Baldomir. Inclui tábua de queijos.",
+            price: 45000,
+            image: ''
+        },
+        {
+            id: 'tour-sunset',
+            title_es: "Sunset en el Jardín",
+            desc_es: "Disfrute del atardecer con una copa de espumante y tapeo gourmet.",
+            title_en: "Garden Sunset",
+            desc_en: "Enjoy the sunset with a glass of sparkling wine and gourmet tapas.",
+            title_pt: "Sunset no Jardim",
+            desc_pt: "Aproveite o pôr do sol com uma taça de espumante e tapas gourmet.",
+            price: 30000,
+            image: ''
+        }
+    ];
+
+    const tastingsData = [
+         {
+            id: 'tasting-varietales',
+            title_es: "Flight Varietales Inusuales",
+            desc_es: "Descubra nuestras cepas atípicas: Marselan, Sangiovese, Pedro Ximénez.",
+            title_en: "Unusual Varietals Flight",
+            desc_en: "Discover our atypical grapes: Marselan, Sangiovese, Pedro Ximénez.",
+            title_pt: "Flight Variedades Incomuns",
+            desc_pt: "Descubra nossas uvas atípicas: Marselan, Sangiovese, Pedro Ximénez.",
+            price: 18000,
+            image: ''
+        },
+        {
+             id: 'tasting-vertical',
+             title_es: "Vertical Martino Malbec",
+             desc_es: "Cata vertical de 3 añadas históricas de nuestro Malbec D.O.C.",
+             title_en: "Martino Malbec Vertical",
+             desc_en: "Vertical tasting of 3 historical vintages of our D.O.C. Malbec.",
+             title_pt: "Vertical Martino Malbec",
+             desc_pt: "Degustação vertical de 3 safras históricas do nosso Malbec D.O.C.",
+             price: 35000,
+             image: ''
+        }
+    ];
+
     function renderWines() {
         const grid = document.getElementById('wines-grid');
+        if (!grid) return; // Guard clause
         grid.innerHTML = ''; // Clear existing
 
         // Render by Category
@@ -192,7 +270,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Category Header
             const catHeader = document.createElement('div');
             catHeader.className = 'wine-category-header';
-            catHeader.innerHTML = `<h3>${cat.title}</h3><hr>`;
+            catHeader.innerHTML = `<h3>${cat.title}</h3>`; // Classy, no hr needed via CSS
             catHeader.style.gridColumn = "1 / -1"; // Full width
             catHeader.style.marginTop = "2rem";
             grid.appendChild(catHeader);
@@ -219,32 +297,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Tours Data
-    const tours = [
-        {
-            title: 'Visita Histórica',
-            desc: 'Recorrido por la bodega de 1901, cava subterránea y museo.',
-            price: '$15.000',
-            duration: '1h'
-        },
-        {
-            title: 'Experiencia Enólogo',
-            desc: 'Visita técnica con degustación de barricas en proceso.',
-            price: '$25.000',
-            duration: '1.5h'
-        }
-    ];
-
-    // Tastings Data
-    const tastings = [
-        {
-            title: 'Degustación Clásica',
-            desc: '3 Vinos de la línea Estate. Introducción perfecta.',
-            price: '$20.000'
-        },
-        {
-            title: 'Degustación Premium',
-            desc: '4 Vinos de alta gama incluyendo Gran Reserva.',
             price: '$35.000'
         }
     ];

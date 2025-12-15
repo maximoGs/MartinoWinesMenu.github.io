@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestros Vinos | Martino Wines</title>
+    <meta name="description"
+        content="Descubra la colección completa de Martino Wines. Varietales, Reservas y Ediciones Limitadas.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="page-wines">
+    <!-- Background -->
+    <div class="background-overlay"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-links">
+            <a href="index.html#step-menus" class="nav-link" data-i18n="nav_steps">Menus</a>
+            <a href="experiences.html#tours" class="nav-link" data-i18n="nav_tours">Visitas</a>
+            <a href="experiences.html#tastings" class="nav-link" data-i18n="nav_tastings">Degustaciones</a>
+            <a href="wines.html" class="nav-link active" data-i18n="nav_wines">Vinos</a>
+        </div>
+        <div class="nav-controls">
+            <button class="lang-btn" data-lang="es">ES</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="pt">PT</button>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- Header -->
+        <header class="page-hero">
+            <h1 class="section-title" data-i18n="section_wines">Nuestros Vinos</h1>
+            <p class="page-subtitle">Explora la excelencia de Luján de Cuyo</p>
+        </header>
+
+        <!-- Category Filter (Premium Style) -->
+        <div class="wine-categories">
+            <button class="wine-cat-btn active" data-filter="all" data-i18n="btn_all">Todos</button>
+            <button class="wine-cat-btn" data-filter="red" data-i18n="btn_reds">Tintos</button>
+            <button class="wine-cat-btn" data-filter="white" data-i18n="btn_whites">Blancos</button>
+        </div>
+
+        <div id="wines-grid" class="menu-grid">
+            <!-- JS Injection for wines -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p data-i18n="footer_text">&copy; 2025 Martino Wines. Est. 1901</p>
+        </div>
+    </footer>
+
+    <!-- Floating Cart Button -->
+    <button id="cart-fab" class="cart-fab" aria-label="View Cart">
+        <div class="cart-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <path d="M16 10a4 4 0 0 1-8 0"></path>
+            </svg>
+        </div>
+        <span id="cart-count" class="cart-count">0</span>
+    </button>
+
+    <!-- Cart Modal/Drawer -->
+    <div id="cart-modal" class="cart-modal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h2 data-i18n="cart_title">Su Selección</h2>
+                <button id="close-cart" class="close-btn">&times;</button>
+            </div>
+
+            <div id="cart-items" class="cart-items">
+                <p class="empty-msg" data-i18n="cart_empty">Su selección está vacía.</p>
+            </div>
+
+            <div class="cart-notes">
+                <label for="cart-note"
+                    style="display:block; margin-bottom:0.5rem; color:var(--text-secondary); font-size:0.9rem;"
+                    data-i18n="cart_notes_label">Notas / Comentarios:</label>
+                <textarea id="cart-note" rows="3" data-i18n="cart_notes_placeholder"
+                    placeholder="Aclaraciones, alergias, etc..."
+                    style="width:100%; padding:0.8rem; border:1px solid #ddd; border-radius:4px; font-family:inherit; resize:vertical;"></textarea>
+            </div>
+
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span data-i18n="total">Total:</span>
+                    <span id="cart-total-price">$0</span>
+                </div>
+                <button id="checkout-btn" class="checkout-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.12 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                        </path>
+                    </svg>
+                    <span data-i18n="checkout_whatsapp">Confirmar por WhatsApp</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
