@@ -623,12 +623,53 @@ h5 {
     filter: brightness(0.9);
 }
 
+/* Footer Section */
 .main-footer {
     background: #0a0a0a;
     color: #888;
     padding: 4rem 2rem;
     text-align: center;
     margin-top: 4rem;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 1px solid #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    transition: all 0.3s ease;
+    background: transparent;
+}
+
+.social-btn:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(184, 134, 11, 0.3);
+}
+
+.social-btn svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
 }
 
 /* PAGE HERO */
@@ -730,12 +771,11 @@ h5 {
 }
 
 /* COMPACT GRID LAYOUT */
+/* MAIN CONTAINER FOR WINE SECTIONS */
 #wines-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    /* More items per row */
-    gap: 1.5rem;
-    /* Tighter gap */
+    display: block;
+    /* Force vertical stacking of sections */
+    width: 100%;
 }
 
 .menu-card {
@@ -743,72 +783,70 @@ h5 {
     /* Ensure consistent padding */
 }
 
-/* WINE SECTIONS - HORIZONTAL SCROLL */
+/* WINE SECTIONS - STRICT HORIZONTAL LINES */
+.wines-main-fluid {
+    width: 100vw;
+    max-width: 100%;
+    margin: 0;
+    padding: 0 0 4rem 0;
+    overflow-x: hidden;
+}
+
 .wine-section {
     margin-bottom: 3rem;
-    /* Tighter section spacing */
+    position: relative;
+    /* Title aligned with content, rail flows to right */
+    padding-left: max(1.5rem, calc((100vw - 1200px) / 2));
 }
 
 .wine-line-title {
     font-family: var(--font-heading);
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     color: var(--text-primary);
-    text-align: left;
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--accent);
-    display: inline-block;
-    min-width: 150px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    display: block;
+    width: 100%;
 }
 
 .wine-line-grid {
     display: flex;
+    flex-wrap: nowrap;
+    /* CRITICAL: Never wrap */
+    flex-direction: row;
+    /* Strict horizontal */
     gap: 1.5rem;
     overflow-x: auto;
-    padding-bottom: 1.5rem;
-    /* Space for scrollbar */
-    padding-right: 1.5rem;
-    /* End padding */
+    /* Allow scroll */
+    padding-bottom: 2rem;
+    padding-right: 2rem;
+
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
-    scrollbar-width: thin;
-    /* Firefox */
-    scrollbar-color: var(--accent) #f0f0f0;
-    scroll-snap-type: x mandatory;
-    /* Snap behavior */
+
+    /* Hide Scrollbar for cleaner look (optional but requested 'format') */
+    scrollbar-width: none;
 }
 
-/* Custom Scrollbar */
+/* Hide scrollbar Webkit */
 .wine-line-grid::-webkit-scrollbar {
-    height: 6px;
+    display: none;
 }
 
-.wine-line-grid::-webkit-scrollbar-track {
-    background: #f0f0f0;
-    border-radius: 4px;
-}
-
-.wine-line-grid::-webkit-scrollbar-thumb {
-    background-color: var(--accent);
-    /* Golden scrollbar */
-    border-radius: 4px;
-}
-
-/* Card in Horizontal Scroll */
+/* Items in the Rail */
 .wine-line-grid .menu-card {
-    flex: 0 0 220px;
-    /* Fixed width, no shrinking */
-    padding: 1rem;
-    /* Compact padding */
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    /* Subtle border */
-    background: #fff;
-    scroll-snap-align: start;
-    /* Snap items */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+    flex: 0 0 280px;
+    /* Fixed solid width */
+    width: 280px;
+    min-width: 280px;
+    /* Force width */
+    height: auto;
 
-.wine-line-grid .menu-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    background: #fff;
+    border: 1px solid #eee;
+    padding: 1rem;
+
+    /* Ensure they stand out */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
