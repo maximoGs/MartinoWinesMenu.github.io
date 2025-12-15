@@ -289,15 +289,28 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!grid) return;
         grid.innerHTML = '';
 
+        // Remove 'menu-grid' class from main container to avoid grid conflict
+        grid.classList.remove('menu-grid'); 
+
         wineCategories.forEach(cat => {
-            const catHeader = document.createElement('div');
-            catHeader.className = 'wine-category-header';
-            catHeader.innerHTML = `<h3>${cat.title}</h3>`;
-            grid.appendChild(catHeader);
+            // Create Section for the Line
+            const section = document.createElement('section');
+            section.className = 'wine-section';
+
+            // Title (Left side)
+            const title = document.createElement('h2');
+            title.className = 'wine-line-title';
+            title.innerText = cat.title;
+            section.appendChild(title);
+
+            // Grid for this Line (Wines below)
+            const lineGrid = document.createElement('div');
+            lineGrid.className = 'wine-line-grid';
 
             cat.wines.forEach(wine => {
                 const card = document.createElement('div');
-                card.className = 'menu-card wine-card';
+                card.className = 'menu-card wine-card'; // Reuse card styles but layout is handled by lineGrid
+                
                 card.innerHTML = `
                     <div class="card-image">
                        ${wine.image ? `<img src="${wine.image}" alt="${wine.name}">` : '<div class="img-placeholder-bottle"></div>'}
@@ -311,8 +324,11 @@ document.addEventListener('DOMContentLoaded', () => {
                         ${translations[currentLang]['add_btn']}
                     </button>
                 `;
-                grid.appendChild(card);
+                lineGrid.appendChild(card);
             });
+
+            section.appendChild(lineGrid);
+            grid.appendChild(section);
         });
     }
 
