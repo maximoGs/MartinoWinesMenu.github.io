@@ -230,11 +230,36 @@ h5 {
     color: #fff;
 }
 
-/* Reset specific add-btn overrides to match above */
+/* PREMIUM GHOST BUTTON - Wine Section */
 .add-btn {
-    margin-top: 1.5rem;
+    background-color: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--text-primary);
+    padding: 0.8rem 1.5rem;
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.4s ease;
     width: 100%;
-    /* Fill card width for wines */
+    margin-top: 1.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.add-btn:hover {
+    background-color: var(--text-primary);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Base Override for Reserve (Keep Solid) */
+.reserve-btn {
+    background-color: var(--text-primary);
+    color: #fff;
 }
 
 /* WINE SECTION - CLEAN LINES */
@@ -278,13 +303,13 @@ h5 {
 .step-card {
     display: flex;
     background: #fff;
-    border: none;
-    /* Clean look */
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    /* Subtle border */
     box-shadow: var(--shadow-sm);
     transition: all 0.4s ease;
     overflow: hidden;
-    margin-bottom: 2rem;
-    /* Spacing */
+    margin-bottom: 3rem;
+    /* More spacing */
 }
 
 .step-details {
@@ -671,4 +696,66 @@ h5 {
 
 .nav-link.active::after {
     width: 100%;
+}
+
+/* WINE CHOICE IMAGES - Defined Space */
+.card-image {
+    height: 350px;
+    /* Taller space for wine bottles */
+    width: 100%;
+    background-color: var(--surface-color);
+    /* Light gray background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    position: relative;
+    border-radius: 4px;
+    /* Slight radius */
+}
+
+/* If real image exists */
+.card-image img {
+    height: 90%;
+    width: auto;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+    /* Better blend with gray bg */
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.1));
+}
+
+/* Placeholder Bottle Silhouette */
+.img-placeholder-bottle {
+    width: 60px;
+    height: 200px;
+    /* Bottle height */
+    background: #e0e0e0;
+    border-radius: 4px 4px 15px 15px;
+    /* Bottle shape approximation */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-placeholder-bottle::before {
+    content: '';
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    /* Neck */
+    height: 35px;
+    background: #e0e0e0;
+}
+
+.img-placeholder-bottle::after {
+    content: 'M';
+    color: #fff;
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: bold;
+    opacity: 0.5;
 }
