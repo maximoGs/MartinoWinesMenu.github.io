@@ -775,3 +775,28 @@ h5 {
     padding: 1.5rem;
     /* Ensure consistent padding */
 }
+
+/* WINE SECTIONS - GROUPED BY LINE */
+.wine-section {
+    margin-bottom: 5rem;
+}
+
+.wine-line-title {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    color: var(--text-primary);
+    text-align: left;
+    /* Left side alignment */
+    margin-bottom: 2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--accent);
+    display: inline-block;
+    /* Only underline title */
+    min-width: 200px;
+}
+
+.wine-line-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
