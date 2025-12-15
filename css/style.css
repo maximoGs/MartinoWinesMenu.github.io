@@ -773,9 +773,10 @@ h5 {
 /* COMPACT GRID LAYOUT */
 /* MAIN CONTAINER FOR WINE SECTIONS */
 #wines-grid {
-    display: block;
+    display: block !important;
     /* Force vertical stacking of sections */
-    width: 100%;
+    width: 100% !important;
+    grid-template-columns: none !important;
 }
 
 .menu-card {
