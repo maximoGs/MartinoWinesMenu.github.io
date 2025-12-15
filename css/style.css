@@ -776,27 +776,65 @@ h5 {
     /* Ensure consistent padding */
 }
 
-/* WINE SECTIONS - GROUPED BY LINE */
+/* WINE SECTIONS - HORIZONTAL SCROLL */
 .wine-section {
-    margin-bottom: 5rem;
+    margin-bottom: 3rem;
+    /* Tighter section spacing */
 }
 
 .wine-line-title {
     font-family: var(--font-heading);
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     color: var(--text-primary);
     text-align: left;
-    /* Left side alignment */
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     padding-bottom: 0.5rem;
     border-bottom: 1px solid var(--accent);
     display: inline-block;
-    /* Only underline title */
-    min-width: 200px;
+    min-width: 150px;
 }
 
 .wine-line-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    display: flex;
     gap: 1.5rem;
+    overflow-x: auto;
+    padding-bottom: 1.5rem;
+    /* Space for scrollbar */
+    padding-right: 1.5rem;
+    /* End padding */
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    /* Firefox */
+    scrollbar-color: var(--accent) #f0f0f0;
+}
+
+/* Custom Scrollbar */
+.wine-line-grid::-webkit-scrollbar {
+    height: 6px;
+}
+
+.wine-line-grid::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 4px;
+}
+
+.wine-line-grid::-webkit-scrollbar-thumb {
+    background-color: var(--accent);
+    /* Golden scrollbar */
+    border-radius: 4px;
+}
+
+/* Card in Horizontal Scroll */
+.wine-line-grid .menu-card {
+    flex: 0 0 220px;
+    /* Fixed width, no shrinking */
+    padding: 1rem;
+    /* Compact padding */
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    /* Subtle border */
+    background: #fff;
+}
+
+gap: 1.5rem;
 }
