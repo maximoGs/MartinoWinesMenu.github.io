@@ -64,8 +64,11 @@ h5 {
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border-color);
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    /* Space out items */
     align-items: center;
+    padding: 0 5%;
+    /* Fluid padding */
     z-index: 1000;
     transition: all 0.3s ease;
 }
@@ -78,6 +81,10 @@ h5 {
 .nav-links {
     display: flex;
     gap: 3rem;
+    flex: 1;
+    /* Allow to take space */
+    justify-content: center;
+    /* Center links in available space */
 }
 
 .nav-link {
@@ -90,6 +97,8 @@ h5 {
     font-weight: 700;
     transition: color 0.3s;
     position: relative;
+    white-space: nowrap;
+    /* Prevent breaking */
 }
 
 .nav-link::after {
@@ -112,26 +121,39 @@ h5 {
 }
 
 .nav-controls {
-    position: absolute;
-    right: 3rem;
+    /* No longer absolute */
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.5rem;
 }
 
+/* Premium Language Buttons */
 .lang-btn {
-    background: none;
-    border: 1px solid var(--text-primary);
-    padding: 5px 10px;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    padding: 6px 12px;
     cursor: pointer;
     font-family: var(--font-body);
-    font-size: 0.8rem;
-    transition: all 0.3s;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    border-radius: 20px;
+    /* Pill shape */
+    color: var(--text-secondary);
 }
 
 .lang-btn:hover {
-    background: var(--text-primary);
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(184, 134, 11, 0.05);
+}
+
+.lang-btn.active {
+    background: var(--accent);
+    border-color: var(--accent);
     color: #fff;
+    box-shadow: 0 2px 10px rgba(184, 134, 11, 0.3);
 }
 
 /* Container */
@@ -857,31 +879,36 @@ h5 {
 /* MOBILE OPTIMIZATION */
 @media (max-width: 768px) {
 
-    /* Navbar Upgrade: 2-Row Layout */
+    /* Navbar Upgrade: Compact Right-Aligned Layout */
     .navbar {
         height: auto;
         padding: 0.5rem 1rem;
-        flex-direction: column;
-        align-items: center;
-        gap: 0.5rem;
+        flex-direction: column-reverse;
+        /* Controls on Top, Links below */
+        align-items: flex-end;
+        /* Align everything to the right */
+        gap: 0.25rem;
+        /* Tighter gap */
     }
 
     .nav-controls {
         position: relative;
         right: auto;
-        width: 100%;
+        width: auto;
+        /* Shrink to fit */
         justify-content: flex-end;
-        padding-bottom: 0.5rem;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        padding-bottom: 0;
+        border-bottom: none;
     }
 
     .nav-links {
         width: 100%;
-        gap: 1.5rem;
+        gap: 1rem;
         overflow-x: auto;
         white-space: nowrap;
-        padding: 0.5rem 0;
-        justify-content: flex-start;
+        padding: 0.25rem 0;
+        justify-content: flex-end;
+        /* Align links to right */
         -webkit-overflow-scrolling: touch;
 
         /* Hide scrollbar */
@@ -893,13 +920,13 @@ h5 {
     }
 
     .nav-link {
-        font-size: 0.85rem;
-        padding: 0.5rem 0;
+        font-size: 0.8rem;
+        padding: 0.25rem 0;
     }
 
     /* Adjust content padding for taller mobile header */
     .page-hero,
     .brand-hero {
-        padding-top: 140px;
+        padding-top: 120px;
     }
 }

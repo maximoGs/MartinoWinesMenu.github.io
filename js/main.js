@@ -390,6 +390,17 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Language Update ---
     function updateLanguage(lang) {
         currentLang = lang;
+        
+        // Update Buttons Active State
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            if (btn.getAttribute('data-lang') === lang) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+
+        // Translate Elements
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
             if (translations[lang][key]) {
@@ -546,6 +557,9 @@ document.addEventListener('DOMContentLoaded', () => {
             updateLanguage(lang);
         });
     });
+
+    // Initialize Language UI
+    updateLanguage(currentLang);
 
     // Initial Render
     if (isWinesPage) renderWines();
