@@ -1,348 +1,125 @@
 document.addEventListener('DOMContentLoaded', () => {
-
-    /* --- Data: Menu Items --- */
-    const menuData = {
-        classic_pizzas: [
-            { 
-                id: 'cp1', 
-                price: 12.00, 
-                img: 'https://images.unsplash.com/photo-1574071318000-8595d03fd19a?q=80&w=600&auto=format&fit=crop',
-                name: { es: "Muzzarella Clásica", en: "Classic Mozzarella", pt: "Mussarela Clássica" }, 
-                desc: { es: "Nuestra masa madre de 48hs, salsa de tomates italianos, abundante muzzarella premium y aceitunas deshuesadas.", en: "Our 48h sourdough, Italian tomato sauce, abundant premium mozzarella, and pitted olives.", pt: "Nossa massa madre de 48h, molho de tomates italianos, muita mussarela premium e azeitonas sem caroço." } 
-            },
-            { 
-                id: 'cp2', 
-                price: 13.50, 
-                img: 'https://images.unsplash.com/photo-1595854341625-f33ee10dbf94?q=80&w=600&auto=format&fit=crop',
-                name: { es: "Napolitana al Ajo", en: "Garlic Napolitana", pt: "Napolitana ao Alho" }, 
-                desc: { es: "Rodajas de tomate perita fresco, ajo asado, aceite de oliva virgen extra y hojas de albahaca fresca.", en: "Fresh pear tomato slices, roasted garlic, extra virgin olive oil, and fresh basil leaves.", pt: "Fatias de tomate fresco, alho assado, azeite de oliva extra virgem e folhas de manjericão fresco." } 
-            },
-            { 
-                id: 'cp3', 
-                price: 13.00, 
-                img: 'https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?q=80&w=600&auto=format&fit=crop',
-                name: { es: "Fugazzeta Rellena", en: "Stuffed Onion Pizza", pt: "Fugazzeta Recheada" }, 
-                desc: { es: "Doble masa rellena de queso cuartirolo, cubierta con cebollas caramelizadas y parmesano gratinado.", en: "Double dough stuffed with soft cheese, topped with caramelized onions and grated parmesan.", pt: "Massa dupla recheada com queijo macio, coberta com cebolas caramelizadas e parmesão gratinado." } 
-            }
-        ],
-        special_pizzas: [
-            { 
-                id: 'sp1', 
-                price: 16.50, 
-                img: 'https://images.unsplash.com/photo-1628840042765-356cda07504e?q=80&w=600&auto=format&fit=crop',
-                name: { es: "Shagui Suprema", en: "Shagui Supreme", pt: "Shagui Suprema" }, 
-                desc: { es: "La favorita: bondiola ahumada, cebolla morada, queso provolone, huevo y pimientos rojos asados.", en: "The favorite: smoked pork shoulder, red onion, provolone cheese, egg, and roasted red peppers.", pt: "A favorita: copa lombo defumada, cebola roxa, queijo provolone, ovo e pimentões vermelhos assados." } 
-            },
-            { 
-                id: 'sp2', 
-                price: 17.00, 
-                img: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=600&auto=format&fit=crop',
-                name: { es: "Cuatro Quesos Luxury", en: "Luxury Four Cheese", pt: "Quatro Queijos Luxo" }, 
-                desc: { es: "Una mezcla decadente de Muzzarella, Roquefort francés, Parmesano Reggiano y Provolone picante.", en: "A decadent blend of Mozzarella, French Roquefort, Parmesan Reggiano, and spicy Provolone.", pt: "Uma mistura decadente de Mussarela, Roquefort francês, Parmesão Reggiano e Provolone picante." } 
-            },
-            { 
-                id: 'sp3', 
-                price: 18.00, 
-                img: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=600&auto=format&fit=crop',
-                name: { es: "Rúcula y Crudo", en: "Arugula & Prosciutto", pt: "Rúcula e Presunto Cru" }, 
-                desc: { es: "Base de tomate y muzzarella, terminada con rúcula fresca, jamón crudo di parma y lascas de parmesano.", en: "Tomato and mozzarella base, finished with fresh arugula, Parma prosciutto, and parmesan shavings.", pt: "Base de tomate e mussarela, finalizada com rúcula fresca, presunto de Parma e lascas de parmesão." } 
-            }
-        ],
-        calzones: [
-            { 
-                id: 'cz1', 
-                price: 15.00, 
-                img: 'https://images.unsplash.com/photo-1534349762230-e0cadf78f5da?q=80&w=600&auto=format&fit=crop',
-                name: { es: "Calzone Calabresa", en: "Calabrese Calzone", pt: "Calzone Calabresa" }, 
-                desc: { es: "Masa crujiente rellena de rodajas de longaniza calabresa, muzzarella fundida y un toque de ají molido.", en: "Crispy dough filled with calabrese sausage slices, melted mozzarella, and a touch of chili flakes.", pt: "Massa crocante recheada com fatias de linguiça calabresa, mussarela derretida e um toque de pimenta calabresa." } 
-            },
-            { 
-                id: 'cz2', 
-                price: 14.50, 
-                img: 'https://images.unsplash.com/photo-1571407921820-2c2628dd5384?q=80&w=600&auto=format&fit=crop', 
-                name: { es: "Calzone Vegetariano", en: "Veggie Calzone", pt: "Calzone Vegetariano" }, 
-                desc: { es: "Espinaca salteada con ajo, ricota suave, nueces tostadas y nuez moscada. Una delicia ligera.", en: "Sautéed spinach with garlic, smooth ricotta, toasted walnuts, and nutmeg. A light delight.", pt: "Espinafre salteado com alho, ricota suave, nozes tostadas e noz-moscada. Uma delícia leve." } 
-            }
-        ],
-        drinks: [
-            { 
-                id: 'dr1', 
-                price: 3.50, 
-                img: 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?q=80&w=600&auto=format&fit=crop',
-                name: { es: "Coca Cola", en: "Coke", pt: "Coca Cola" }, 
-                desc: { es: "Lata 354ml bien fría, ideal para acompañar tu pizza.", en: "Cold 354ml can, perfect to accompany your pizza.", pt: "Lata 354ml bem gelada, ideal para acompanhar sua pizza." } 
-            },
-            { 
-                id: 'dr2', 
-                price: 5.00, 
-                img: 'https://images.unsplash.com/photo-1608270586620-248524c67de9?q=80&w=600&auto=format&fit=crop',
-                name: { es: "Cerveza Lager Artesanal", en: "Craft Lager Beer", pt: "Cerveja Lager Artesanal" }, 
-                desc: { es: "Pinta de cerveza rubia, ligera y refrescante. Notas de malta y miel.", en: "Blonde beer pint, light and refreshing. Notes of malt and honey.", pt: "Pint de cerveja loira, leve e refrescante. Notas de malte e mel." } 
-            },
-            { 
-                id: 'dr3', 
-                price: 4.00, 
-                img: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=600&auto=format&fit=crop',
-                name: { es: "Limonada con Menta", en: "Mint Lemonade", pt: "Limonada com Hortelã" }, 
-                desc: { es: "Jugo de limón natural, menta fresca y jengibre.", en: "Natural lemon juice, fresh mint, and ginger.", pt: "Suco de limão natural, hortelã fresca e gengibre." } 
-            }
-        ]
-    };
-
-    /* --- Translations --- */
-    const translations = {
-        es: {
-            menu_title: "SHAGUI PIZZAS",
-            menu_subtitle: "El verdadero sabor casero",
-            cat_classic_pizzas: "Pizzas Clásicas",
-            cat_special_pizzas: "Pizzas Especiales",
-            cat_calzones: "Calzones",
-            cat_drinks: "Bebidas",
-            cart_title: "Tu Pedido",
-            cart_empty: "Aún no elegiste tu pizza.",
-            total: "Total:",
-            checkout_whatsapp: "Pedir por WhatsApp",
-            add_btn: "AGREGAR",
-            currency: "$"
-        },
-        en: {
-            menu_title: "SHAGUI PIZZAS",
-            menu_subtitle: "True homemade taste",
-            cat_classic_pizzas: "Classic Pizzas",
-            cat_special_pizzas: "Special Pizzas",
-            cat_calzones: "Calzones",
-            cat_drinks: "Drinks",
-            cart_title: "Your Order",
-            cart_empty: "No pizza chosen yet.",
-            total: "Total:",
-            checkout_whatsapp: "Order via WhatsApp",
-            add_btn: "ADD",
-            currency: "$"
-        },
-        pt: {
-            menu_title: "SHAGUI PIZZAS",
-            menu_subtitle: "O verdadeiro sabor caseiro",
-            cat_classic_pizzas: "Pizzas Clássicas",
-            cat_special_pizzas: "Pizzas Especiais",
-            cat_calzones: "Calzones",
-            cat_drinks: "Bebidas",
-            cart_title: "Seu Pedido",
-            cart_empty: "Ainda não escolheu sua pizza.",
-            total: "Total:",
-            checkout_whatsapp: "Pedir pelo WhatsApp",
-            add_btn: "ADICIONAR",
-            currency: "$"
+    // Scroll Effect for Navbar
+    const navbar = document.querySelector('.navbar');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
         }
-    };
+    });
 
-    let currentLang = 'es';
-    let currentCategory = 'classic_pizzas'; // Updated default category
+    // Data - Wines (Real Portfolio)
+    const wines = [
+        // Martino Superiore
+        {
+            id: 'sup-malbec',
+            name: 'Martino Superiore Malbec',
+            desc: 'D.O.C. Luján de Cuyo. 18 meses en barrica. Intenso, ciruelas maduras, chocolate y especias.',
+            price: '$45.000',
+            category: 'red',
+            image: '' 
+        },
+        {
+            id: 'sup-petit',
+            name: 'Martino Superiore Petit Verdot',
+            desc: 'Elegante y complejo. Notas a moras, violetas y un toque mineral. Gran cuerpo.',
+            price: '$48.000',
+            category: 'red',
+            image: ''
+        },
+        // Martino Varietals
+        {
+            id: 'mar-marselan',
+            name: 'Martino Marselan',
+            desc: 'Exótico y vibrante. Frutos negros, toques mentolados y taninos suaves.',
+            price: '$38.000',
+            category: 'red',
+            image: ''
+        },
+        {
+            id: 'mar-sangiovese',
+            name: 'Martino Sangiovese',
+            desc: 'Fresco y vivaz. Cerezas rojas, acidez equilibrada y final frutado.',
+            price: '$35.000',
+            category: 'red',
+            image: ''
+        },
+        {
+            id: 'mar-cf',
+            name: 'Martino Cabernet Franc',
+            desc: 'Tipicidad de Agrelo. Pimiento rojo asado, pimienta y frutas del bosque.',
+            price: '$38.000',
+            category: 'red',
+            image: ''
+        },
+        {
+            id: 'mar-px',
+            name: 'Martino Pedro Ximénez',
+            desc: 'Blanco seco Edición Limitada. Floral, cítrico y de acidez refrescante.',
+            price: '$32.000',
+            category: 'white',
+            image: ''
+        },
+        {
+            id: 'mar-rose',
+            name: 'Martino Rosé',
+            desc: 'Merlot & Malbec. Fresco, sutil color salmón y aromas a frutillas.',
+            price: '$30.000',
+            category: 'white', // Grouped with whites/rosé for filter simplicity or add category
+            image: ''
+        }
+    ];
+
+    // Tours Data
+    const tours = [
+        {
+            title: 'Visita Histórica',
+            desc: 'Recorrido por la bodega de 1901, cava subterránea y museo.',
+            price: '$15.000',
+            duration: '1h'
+        },
+        {
+            title: 'Experiencia Enólogo',
+            desc: 'Visita técnica con degustación de barricas en proceso.',
+            price: '$25.000',
+            duration: '1.5h'
+        }
+    ];
+
+    // Tastings Data
+    const tastings = [
+        {
+            title: 'Degustación Clásica',
+            desc: '3 Vinos de la línea Estate. Introducción perfecta.',
+            price: '$20.000'
+        },
+        {
+            title: 'Degustación Premium',
+            desc: '4 Vinos de alta gama incluyendo Gran Reserva.',
+            price: '$35.000'
+        }
+    ];
+
+    // Render Functions
+    const winesGrid = document.getElementById('wines-grid');
+    const toursGrid = document.getElementById('tours-content');
+    const tastingsGrid = document.getElementById('tastings-content');
+
+    // --- CART LOGIC ---
     let cart = [];
-
+    
     // DOM Elements
-    const menuGrid = document.getElementById('menu-grid');
-    const langBtn = document.getElementById('lang-toggle');
-    const langSpan = langBtn.querySelector('.current-lang');
-    const catBtns = document.querySelectorAll('.cat-btn');
     const cartFab = document.getElementById('cart-fab');
-    const cartCount = document.getElementById('cart-count');
     const cartModal = document.getElementById('cart-modal');
     const closeCartBtn = document.getElementById('close-cart');
     const cartItemsContainer = document.getElementById('cart-items');
-    const cartTotalPrice = document.getElementById('cart-total-price');
+    const cartTotalPriceEl = document.getElementById('cart-total-price');
+    const cartCountEl = document.getElementById('cart-count');
     const checkoutBtn = document.getElementById('checkout-btn');
 
-    /* --- Core Functions --- */
-
-    function formatPrice(price) {
-        return `${translations[currentLang].currency}${price.toFixed(2)}`;
-    }
-
-    function renderMenu() {
-        menuGrid.innerHTML = '';
-        const items = menuData[currentCategory];
-
-        items.forEach(item => {
-            const card = document.createElement('div');
-            card.className = 'menu-card';
-            
-            // Check if item is in cart to show quantity
-            const cartItem = cart.find(i => i.id === item.id);
-            const qty = cartItem ? cartItem.qty : 0;
-
-            card.innerHTML = `
-                <div class="card-image">
-                    <img src="${item.img}" alt="${item.name[currentLang]}" loading="lazy">
-                </div>
-                <div class="card-content">
-                    <div class="card-header">
-                        <h3>${item.name[currentLang]}</h3>
-                        <span class="price">${formatPrice(item.price)}</span>
-                    </div>
-                    <p class="desc">${item.desc[currentLang]}</p>
-                    <div class="card-actions">
-                        ${qty > 0 ? `
-                            <div class="qty-control">
-                                <button class="qty-btn minus" data-id="${item.id}">-</button>
-                                <span class="qty-val">${qty}</span>
-                                <button class="qty-btn plus" data-id="${item.id}">+</button>
-                            </div>
-                        ` : `
-                            <button class="add-btn" data-id="${item.id}">${translations[currentLang].add_btn}</button>
-                        `}
-                    </div>
-                </div>
-            `;
-            menuGrid.appendChild(card);
-        });
-
-        // Attach event listeners to new buttons
-        document.querySelectorAll('.add-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                addToCart(e.target.dataset.id);
-            });
-        });
-
-        document.querySelectorAll('.qty-btn.plus').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                addToCart(e.target.dataset.id);
-            });
-        });
-
-        document.querySelectorAll('.qty-btn.minus').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                removeFromCart(e.target.dataset.id);
-            });
-        });
-    }
-
-    function addToCart(id) {
-        const item = findItemById(id);
-        const existing = cart.find(i => i.id === id);
-
-        if (existing) {
-            existing.qty++;
-        } else {
-            cart.push({ ...item, qty: 1 });
-        }
-        updateCartState();
-    }
-
-    function removeFromCart(id) {
-        const existing = cart.find(i => i.id === id);
-        if (existing) {
-            existing.qty--;
-            if (existing.qty <= 0) {
-                cart = cart.filter(i => i.id !== id);
-            }
-        }
-        updateCartState();
-    }
-
-    function findItemById(id) {
-        for (const cat in menuData) {
-            const found = menuData[cat].find(i => i.id === id);
-            if (found) return found;
-        }
-        return null;
-    }
-
-    function updateCartState() {
-        // Update total count in FAB
-        const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
-        cartCount.textContent = totalQty;
-        cartCount.classList.toggle('visible', totalQty > 0);
-
-        // Re-render menu to show updated quantities
-        renderMenu();
-
-        // Re-render cart if open
-        if (cartModal.classList.contains('active')) {
-            renderCartItems();
-        }
-    }
-
-    function renderCartItems() {
-        cartItemsContainer.innerHTML = '';
-        let total = 0;
-
-        if (cart.length === 0) {
-            cartItemsContainer.innerHTML = `<p class="empty-msg">${translations[currentLang].cart_empty}</p>`;
-        } else {
-            cart.forEach(item => {
-                const itemTotal = item.price * item.qty;
-                total += itemTotal;
-
-                const row = document.createElement('div');
-                row.className = 'cart-item-row';
-                row.innerHTML = `
-                    <div class="cart-item-info">
-                        <strong>${item.name[currentLang]}</strong>
-                        <small>${formatPrice(item.price)} x ${item.qty}</small>
-                    </div>
-                    <div class="cart-item-actions">
-                        <button class="cart-action-btn minus" data-id="${item.id}">-</button>
-                        <span>${formatPrice(itemTotal)}</span>
-                        <button class="cart-action-btn plus" data-id="${item.id}">+</button>
-                    </div>
-                `;
-                cartItemsContainer.appendChild(row);
-            });
-        }
-
-        cartTotalPrice.textContent = formatPrice(total);
-
-        // Attach listeners in cart
-        document.querySelectorAll('.cart-action-btn.plus').forEach(btn => {
-            btn.addEventListener('click', (e) => addToCart(e.target.dataset.id));
-        });
-        document.querySelectorAll('.cart-action-btn.minus').forEach(btn => {
-            btn.addEventListener('click', (e) => removeFromCart(e.target.dataset.id));
-        });
-    }
-
-    function updateLanguage(lang) {
-        currentLang = lang;
-        langSpan.textContent = lang.toUpperCase();
-        
-        // Update all data-i18n elements
-        document.querySelectorAll('[data-i18n]').forEach(el => {
-            const key = el.getAttribute('data-i18n');
-            if (translations[lang][key]) {
-                el.textContent = translations[lang][key];
-            }
-        });
-
-        // Re-render views
-        renderMenu();
-        if (cartModal.classList.contains('active')) {
-            renderCartItems();
-        }
-    }
-
-    /* --- Event Listeners --- */
-
-    // Category Switching
-    catBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            catBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            currentCategory = btn.dataset.category;
-            renderMenu();
-        });
-    });
-
-    // Language Toggle
-    langBtn.addEventListener('click', () => {
-        const langs = ['es', 'en', 'pt'];
-        let idx = langs.indexOf(currentLang);
-        idx = (idx + 1) % langs.length;
-        updateLanguage(langs[idx]);
-    });
-
-    // Cart Modal
+    // Toggle Cart
     cartFab.addEventListener('click', () => {
-        renderCartItems();
         cartModal.classList.add('active');
     });
 
@@ -350,27 +127,207 @@ document.addEventListener('DOMContentLoaded', () => {
         cartModal.classList.remove('active');
     });
 
-    // WhatsApp Checkout
+    cartModal.addEventListener('click', (e) => {
+        if (e.target === cartModal) cartModal.classList.remove('active');
+    });
+
+    // Add to Cart
+    window.addToCart = (id, title, priceStr) => {
+        // Parse price
+        const price = parseInt(priceStr.replace(/[^0-9]/g, ''));
+        
+        const existingItem = cart.find(item => item.id === id);
+        if (existingItem) {
+            existingItem.qty++;
+        } else {
+            cart.push({
+                id: id,
+                title: title,
+                price: price,
+                qty: 1
+            });
+        }
+        updateCartUI();
+        cartModal.classList.add('active'); // Auto open cart feedback
+    };
+
+    // Remove/Decrease
+    window.removeFromCart = (id) => {
+        const index = cart.findIndex(item => item.id === id);
+        if (index !== -1) {
+            if (cart[index].qty > 1) {
+                cart[index].qty--;
+            } else {
+                cart.splice(index, 1);
+            }
+        }
+        updateCartUI();
+    };
+
+    // Update UI
+    function updateCartUI() {
+        cartItemsContainer.innerHTML = '';
+        let total = 0;
+        let count = 0;
+
+        if (cart.length === 0) {
+            cartItemsContainer.innerHTML = '<p class="empty-msg">Su selección está vacía.</p>';
+            cartCountEl.classList.remove('visible');
+        } else {
+            cart.forEach(item => {
+                total += item.price * item.qty;
+                count += item.qty;
+
+                const itemEl = document.createElement('div');
+                itemEl.className = 'cart-item-row';
+                itemEl.innerHTML = `
+                    <div class="cart-item-info">
+                        <strong>${item.title}</strong>
+                        <small>$${item.price.toLocaleString('es-AR')}</small>
+                    </div>
+                    <div class="cart-item-actions">
+                         <button class="cart-action-btn" onclick="removeFromCart('${item.id}')">-</button>
+                         <span class="qty-val">${item.qty}</span>
+                         <button class="cart-action-btn" onclick="addToCart('${item.id}', '${item.title}', '${item.price}')">+</button>
+                    </div>
+                `;
+                cartItemsContainer.appendChild(itemEl);
+            });
+            cartCountEl.textContent = count;
+            cartCountEl.classList.add('visible');
+        }
+
+        cartTotalPriceEl.textContent = '$' + total.toLocaleString('es-AR');
+    }
+
+    // Checkout (WhatsApp)
     checkoutBtn.addEventListener('click', () => {
         if (cart.length === 0) return;
 
-        let message = `*Hola! Quiero realizar un pedido:*\n\n`;
+        const notes = document.getElementById('cart-note').value;
+        let message = "Hola Martino Wines! Me gustaría reservar lo siguiente:\n\n";
         let total = 0;
 
         cart.forEach(item => {
-            const itemTotal = item.price * item.qty;
-            total += itemTotal;
-            message += `- ${item.qty}x ${item.name[currentLang]} (${formatPrice(item.price)})\n`;
+            message += `- ${item.qty}x ${item.title} ($${(item.price * item.qty).toLocaleString('es-AR')})\n`;
+            total += item.price * item.qty;
         });
 
-        message += `\n*Total: ${formatPrice(total)}*`;
+        message += `\n*Total: $${total.toLocaleString('es-AR')}*`;
+        
+        if(notes && notes.trim() !== "") {
+            message += `\n\n*Notas:* ${notes}`;
+        }
 
-        // Replace with actual merchant number if provided, currently placeholder
-        const phoneNumber = "5491112345678"; 
+        // Add Date/Name placeholder if needed, for now just the list
+        message += "\n\nQuedo a la espera de confirmación.";
+
+        const phoneNumber = "5492615555555"; // Replace with real number
         const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
         window.open(url, '_blank');
     });
 
-    /* --- Init --- */
-    renderMenu();
+    // --- RENDER UPDATES ---
+
+    function renderWines(filter = 'all') {
+        winesGrid.innerHTML = '';
+        wines.forEach(wine => {
+            if (filter === 'all' || wine.category === filter) {
+                const card = document.createElement('div');
+                card.className = 'menu-card';
+                card.innerHTML = `
+                    <div class="card-image">
+                        <!-- Custom Bottle SVG with filter color -->
+                       <svg width="60" height="180" viewBox="0 0 60 180" fill="${wine.category === 'white' ? '#e2d2b5' : '#4a1118'}" xmlns="http://www.w3.org/2000/svg">
+                         <path d="M30 180C15 180 15 170 15 150V60C15 40 20 30 25 30V10H20V0H40V10H35V30C40 30 45 40 45 60V150C45 170 45 180 30 180Z" opacity="0.9"/>
+                       </svg>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3>${wine.name}</h3>
+                        </div>
+                        <p class="desc">${wine.desc}</p>
+                        <span class="card-price">${wine.price}</span>
+                        <br><br>
+                        <button class="reserve-btn" onclick="addToCart('${wine.id}', '${wine.name}', '${wine.price}')">Agregar</button>
+                    </div>
+                `;
+                winesGrid.appendChild(card);
+            }
+        });
+    }
+
+    function renderTours() {
+        if(!toursGrid) return;
+        toursGrid.innerHTML = '';
+        tours.forEach((item, index) => {
+            const card = document.createElement('div');
+            card.className = 'step-card'; 
+            card.innerHTML = `
+                <div class="step-header">
+                    <h3>${item.title}</h3>
+                    <span class="price">${item.price}</span>
+                </div>
+                <p class="step-desc">${item.desc}</p>
+                 <div style="margin-top:auto; margin-bottom: 1rem;">
+                     <small>Duración: ${item.duration}</small>
+                </div>
+                <button class="reserve-btn" onclick="addToCart('tour-${index}', '${item.title}', '${item.price}')">Reservar</button>
+            `;
+            toursGrid.appendChild(card);
+        });
+    }
+
+    function renderTastings() {
+        if(!tastingsGrid) return;
+        tastingsGrid.innerHTML = '';
+        tastings.forEach((item, index) => {
+            const card = document.createElement('div');
+            card.className = 'step-card';
+            card.innerHTML = `
+                <div class="step-header">
+                    <h3>${item.title}</h3>
+                    <span class="price">${item.price}</span>
+                </div>
+                <p class="step-desc">${item.desc}</p>
+                <div style="margin-top:auto; margin-bottom: 1rem;"></div>
+                <button class="reserve-btn" onclick="addToCart('taste-${index}', '${item.title}', '${item.price}')">Reservar</button>
+            `;
+            tastingsGrid.appendChild(card);
+        });
+    }
+
+    // Attach to HTML static elements (Step Menus)
+    // We need to make the static HTML buttons interactive or re-render them. 
+    // Easier to re-render them or just attach listeners to the existing ones.
+    // Let's attach listeners to the static buttons:
+    const stepButtons = document.querySelectorAll('#step-menus .reserve-btn');
+    const stepData = [
+        { id: 'step-3', title: 'Menú 3 Pasos', price: '$60.000' },
+        { id: 'step-4', title: 'Menú 4 Pasos', price: '$90.000' },
+        { id: 'step-7', title: 'Menú 7 Pasos', price: '$120.000' }
+    ];
+    
+    stepButtons.forEach((btn, index) => {
+        if(stepData[index]) {
+            btn.onclick = () => addToCart(stepData[index].id, stepData[index].title, stepData[index].price);
+        }
+    });
+
+
+
+    // Initialize
+    renderWines();
+    renderTours();
+    renderTastings();
+
+    // Filters
+    const filterBtns = document.querySelectorAll('.wine-cat-btn');
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderWines(btn.dataset.filter);
+        });
+    });
 });
