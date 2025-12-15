@@ -213,6 +213,75 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
 
+    // --- Dynamic Step Menus Data ---
+    const stepMenusData = [
+        {
+            id: 'step-3', 
+            price: 59000,
+            title_es: "Menú 3 Pasos a la Carta",
+            desc_es: "<strong>Entrada</strong><br>Pastelito de Osobuco (Opc. Veg) / Ensalada / Babaganush<br><br><strong>Principal</strong><br>Ñoquis de Ricota / Cotoletta / Cerdo Laqueado (Ternera +$7.000)<br><br><strong>Postre</strong><br>Bavaroise / Chocolate / Pavlova<br><br><em>Incluye agua, café y una botella línea Martino cada 2 personas.</em>",
+            title_en: "3-Course A la Carte",
+            desc_en: "<strong>Starter</strong><br>Ossobuco Pastry / Salad / Babaganoush<br><br><strong>Main</strong><br>Ricotta Gnocchi / Cotoletta / Glazed Pork (Veal +$7.000)<br><br><strong>Dessert</strong><br>Strawberry Bavaroise / Chocolate / Pavlova<br><br><em>Includes water, coffee and one Martino bottle every 2 people.</em>",
+            title_pt: "Menu 3 Passos à La Carte",
+            desc_pt: "<strong>Entrada</strong><br>Pastel de Ossobuco / Salada / Babaganush<br><br><strong>Prato Principal</strong><br>Nhoque de Ricota / Cotoletta / Porco Laqueado (Vitela +$7.000)<br><br><strong>Sobremesa</strong><br>Bavaroise de Morango / Chocolate / Pavlova<br><br><em>Inclui água, café e uma garrafa Martino a cada 2 pessoas.</em>"
+        },
+        {
+            id: 'step-4',
+            price: 90000,
+            title_es: "Menú 4 Pasos",
+            desc_es: "<strong>Paso 1</strong><br>Langostino. Leche de tigre. Alga<br><em>Copa Fruto Blanco</em><br><br><strong>Paso 2</strong><br>Pesca blanca. Arveja. Pickle<br><em>Copa Rose</em><br><br><strong>Paso 3</strong><br>Tapa de asado. Aligot. Fondo<br><em>Copa Molteni Bordeaux / Baldomir Vistalba</em><br><br><strong>Paso 4</strong><br>Pistacho. Naranja. Algarroba<br><em>Copa Espumante</em>",
+            title_en: "4-Course Menu",
+            desc_en: "<strong>Step 1</strong><br>Prawn. Tiger milk. Seaweed<br><em>Fruto Blanco</em><br><br><strong>Step 2</strong><br>White fish. Peas. Pickle<br><em>Rose</em><br><br><strong>Step 3</strong><br>Rib cap. Aligot. Jus<br><em>Molteni Bordeaux / Baldomir Vistalba</em><br><br><strong>Step 4</strong><br>Pistachio. Orange. Carob<br><em>Sparkling Wine</em>",
+            title_pt: "Menu 4 Passos",
+            desc_pt: "<strong>Passo 1</strong><br>Camarão. Leite de tigre. Alga<br><em>Fruto Blanco</em><br><br><strong>Passo 2</strong><br>Peixe branco. Ervilha. Pickle<br><em>Rose</em><br><br><strong>Passo 3</strong><br>Tapa de asado. Aligot. Molho<br><em>Molteni Bordeaux / Baldomir Vistalba</em><br><br><strong>Passo 4</strong><br>Pistache. Laranja. Algarroba<br><em>Espumante</em>"
+        },
+        {
+            id: 'step-7',
+            price: 120000,
+            title_es: "Menú 7 Pasos",
+            desc_es: "<strong>Paso 1</strong> Snack del chef (Fruto Blanco)<br><strong>Paso 2</strong> Langostino (Rose)<br><strong>Paso 3</strong> Pesca blanca (Superiore Syrah)<br><strong>Paso 4</strong> Arroz negro (Molteni Bordeaux)<br><strong>Paso 5</strong> Tapa de asado (Baldomir Vistalba/Gran Malbec)<br><strong>Paso 6</strong> Limpia boca<br><strong>Paso 7</strong> Pistacho (Espumante)",
+            title_en: "7-Course Menu",
+            desc_en: "<strong>Step 1</strong> Chef Snack<br><strong>Step 2</strong> Prawn<br><strong>Step 3</strong> White Fish<br><strong>Step 4</strong> Black Rice<br><strong>Step 5</strong> Rib Cap<br><strong>Step 6</strong> Palate Cleanser<br><strong>Step 7</strong> Pistachio",
+            title_pt: "Menu 7 Passos",
+            desc_pt: "<strong>Passo 1</strong> Snack do chef<br><strong>Passo 2</strong> Camarão<br><strong>Passo 3</strong> Peixe branco<br><strong>Passo 4</strong> Arroz negro<br><strong>Passo 5</strong> Tapa de asado<br><strong>Passo 6</strong> Limpa paladar<br><strong>Passo 7</strong> Pistache"
+        }
+    ];
+
+    function renderSteps() {
+        const stepsGrid = document.querySelector('#step-menus .steps-grid');
+        if (!stepsGrid) return;
+        
+        stepsGrid.innerHTML = ''; // Clear static HTML
+        
+        stepMenusData.forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'step-card';
+            if (item.id === 'step-4') card.classList.add('featured'); // Keep featured style
+            
+            card.innerHTML = `
+                <div class="step-image-container">
+                    <div class="img-placeholder"></div>
+                </div>
+                <div class="step-details">
+                    <div class="step-header">
+                        <h3>${item[`title_${currentLang}`]}</h3>
+                        <span class="price">$${item.price.toLocaleString('es-AR')}</span>
+                    </div>
+                    <div class="step-content">
+                        <p class="step-desc">${item[`desc_${currentLang}`]}</p>
+                    </div>
+                    <div class="step-action">
+                        <button class="reserve-btn" onclick="addToCart('${item.id}', '${item[`title_${currentLang}`]}', ${item.price})">
+                            ${translations[currentLang]['reserve_btn']}
+                        </button>
+                    </div>
+                </div>
+            `;
+            stepsGrid.appendChild(card);
+        });
+    }
+
+
     // --- Render Functions ---
 
     function renderWines() {
@@ -238,7 +307,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <p class="desc">${wine.desc}</p>
                         <span class="card-price">$${wine.price.toLocaleString('es-AR')}</span>
                     </div>
-                    <button class="add-btn" onclick="addToCart('${wine.id}', '${wine.name}', '${wine.price}')">
+                    <button class="add-btn" onclick="addToCart('${wine.id}', '${wine.name}', ${wine.price})">
                         ${translations[currentLang]['add_btn']}
                     </button>
                 `;
@@ -266,7 +335,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             <p class="step-desc">${item[`desc_${currentLang}`]}</p>
                         </div>
                         <div class="step-action">
-                             <button class="reserve-btn" onclick="addToCart('${item.id}', '${item[`title_${currentLang}`]}', '${item.price}')">
+                             <button class="reserve-btn" onclick="addToCart('${item.id}', '${item[`title_${currentLang}`]}', ${item.price})">
                                 ${translations[currentLang]['reserve_btn']}
                             </button>
                         </div>
@@ -291,7 +360,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             <p class="step-desc">${item[`desc_${currentLang}`]}</p>
                         </div>
                         <div class="step-action">
-                             <button class="reserve-btn" onclick="addToCart('${item.id}', '${item[`title_${currentLang}`]}', '${item.price}')">
+                             <button class="reserve-btn" onclick="addToCart('${item.id}', '${item[`title_${currentLang}`]}', ${item.price})">
                                 ${translations[currentLang]['reserve_btn']}
                             </button>
                         </div>
@@ -316,20 +385,12 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
         
-        // Static buttons update
-        document.querySelectorAll('.reserve-btn').forEach(btn => {
-            // Only update text if it's just "Book Now/Reservar", not if it has dynamic price?
-            // Actually, static buttons (Steps) serve "Reservar". 
-            // Experiences buttons are re-rendered below.
-            if(btn.closest('#step-menus')) {
-                 btn.innerText = translations[lang]['reserve_btn'];
-            }
-        });
-
-        // Re-render Dynamic Sections
+        // Dynamic Renders
+        // Check page to know what to render, but simple rule: try to render all if elements exist
         if (isWinesPage) renderWines(); 
         if (isExperiencesPage) renderExperiences();
-        
+        if (document.querySelector('#step-menus')) renderSteps(); // Always render steps if section exists (Index)
+
         // Update Filter Buttons Text
         const filters = {
             'all': 'btn_all',
@@ -347,7 +408,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- Cart Logic ---
-    let cart = []; // In a real app, load from localStorage
+    // Load from LocalStorage
+    let cart = JSON.parse(localStorage.getItem('martinoCart')) || [];
     
     const cartFab = document.getElementById('cart-fab');
     const cartModal = document.getElementById('cart-modal');
@@ -369,6 +431,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    function saveCart() {
+        localStorage.setItem('martinoCart', JSON.stringify(cart));
+        updateCartUI();
+    }
+
     window.addToCart = (id, title, price) => {
         // Ensure price is number
         let finalPrice = price;
@@ -382,7 +449,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             cart.push({ id, title, price: finalPrice, qty: 1 });
         }
-        updateCartUI();
+        saveCart();
         cartModal.classList.add('active');
     };
 
@@ -395,7 +462,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 cart.splice(index, 1);
             }
         }
-        updateCartUI();
+        saveCart();
     };
 
     function updateCartUI() {
@@ -405,7 +472,9 @@ document.addEventListener('DOMContentLoaded', () => {
         let count = 0;
 
         if (cart.length === 0) {
-            cartItemsContainer.innerHTML = `<p class="empty-msg">${translations[currentLang]['cart_empty']}</p>`;
+            // Safe check for translations in case init is slow
+            const emptyText = translations[currentLang] ? translations[currentLang]['cart_empty'] : "Su selección está vacía.";
+            cartItemsContainer.innerHTML = `<p class="empty-msg">${emptyText}</p>`;
             cartCountEl.classList.remove('visible');
         } else {
             cart.forEach(item => {
@@ -465,19 +534,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initial Render
     if (isWinesPage) renderWines();
     if (isExperiencesPage) renderExperiences();
+    if (document.querySelector('#step-menus')) renderSteps(); // Render static steps dynamically now
     
-    // Bind Static Step Buttons (Home)
-    const stepButtons = document.querySelectorAll('#step-menus .reserve-btn');
-    const stepData = [
-        { id: 'step-3', title: 'Menú 3 Pasos', price: 60000 },
-        { id: 'step-4', title: 'Menú 4 Pasos', price: 90000 },
-        { id: 'step-7', title: 'Menú 7 Pasos', price: 120000 }
-    ];
-    stepButtons.forEach((btn, index) => {
-        if(stepData[index]) {
-            btn.onclick = () => addToCart(stepData[index].id, stepData[index].title, stepData[index].price);
-        }
-    });
+    // Check if we are on Index to render steps? 
+    // The selector checks existence, so its safe.
 
     // Wine Filters
     const filterBtns = document.querySelectorAll('.wine-cat-btn');
@@ -485,28 +545,14 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('click', () => {
             filterBtns.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-            // Basic client-side hide/show filter
             const filter = btn.dataset.filter;
-            const allCards = document.querySelectorAll('.wine-card');
-            // Since we render by category, filtering is a bit complex if we want to keep headers.
-            // Simpler approach: Re-render? Or CSS Toggle.
-            // Let's use CSS toggle for simplicity or just Re-render wines with filter logic if needed.
-            // For now, let's just re-render or hide/show. 
-            // Actually, the previous logic was missing.
-            // Let's just implement a simple visual filter.
-            if(filter === 'all') {
+             if(filter === 'all') {
                 document.querySelectorAll('.wine-category-header, .wine-card').forEach(el => el.style.display = '');
             } else {
-                 // Check wine data to see which category it belongs to?
-                 // Or just filter by keywords? 
-                 // Simpler: The user asked for "Red/White" filters.
-                 // We need to know which wine is red/white. 
-                 // We didn't add 'type' to wine data.
-                 // We can infer or add it.
-                 // For now, to satisfy "translation works well", let's leave filters visual only or functioning if 'red'/'white' were in data.
-                 // I'll ignore complex functional filtering for this specific 'translation' task unless requested.
+                 // No functional filter for now as discussed
             }
         });
     });
-
+    
+    updateCartUI(); // Init cart UI with loaded data
 });
