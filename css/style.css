@@ -127,7 +127,23 @@ h5 {
 
 /* MOBILE OPTIMIZATION */
 @media (max-width: 768px) {
-    /* ... existing code ... */
+
+    /* Navbar Upgrade: Compact Layout */
+    .navbar {
+        height: auto;
+        padding: 0.5rem 1rem;
+        flex-direction: column-reverse;
+        /* Controls on Top, Links below */
+        align-items: flex-end;
+        /* Align controls to right */
+        gap: 0.25rem;
+
+        /* SAFETY: Prevent stacking off-screen */
+        max-height: 90vh;
+        /* Never taller than screen */
+        overflow-y: auto;
+        /* Scroll if needed */
+    }
 
     .nav-link {
         font-size: 0.8rem;
