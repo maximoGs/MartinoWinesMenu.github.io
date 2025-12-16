@@ -935,20 +935,10 @@ h5 {
     mix-blend-mode: multiply;
 }
 
-/* TABLET OPTIMIZATION */
+/* MOBILE & TABLET OPTIMIZATION */
+/* Combined rule to ensure navigation never breaks on intermediate screens */
 @media (max-width: 1024px) {
-    .nav-links {
-        gap: 1.5rem;
-        /* Reduce gap on tablet */
-    }
 
-    .navbar {
-        padding: 0 2rem;
-    }
-}
-
-/* MOBILE OPTIMIZATION */
-@media (max-width: 768px) {
 
     /* Navbar Upgrade: Compact Layout */
     .navbar {
