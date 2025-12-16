@@ -69,8 +69,6 @@ h5 {
     align-items: center;
     padding: 0 5%;
     /* Fluid padding */
-    padding: 0 5%;
-    /* Fluid padding */
     z-index: 1000;
     transition: all 0.3s ease;
     box-shadow: var(--shadow-sm);
@@ -110,16 +108,15 @@ h5 {
 
 /* ... existing code ... */
 
-/* Premium Language Buttons */
+/* ⚠️ CRITICAL: Language buttons - consolidated definition */
+/* DO NOT duplicate these styles elsewhere */
 .lang-btn {
     background: transparent;
     border: 1px solid var(--border-color);
-    padding: 4px 10px;
-    /* Smaller padding */
+    padding: 6px 12px;
     cursor: pointer;
     font-family: var(--font-body);
-    font-size: 0.7rem;
-    /* Smaller font */
+    font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 1px;
     transition: all 0.3s ease;
@@ -128,36 +125,17 @@ h5 {
     color: var(--text-secondary);
 }
 
-/* ... existing code ... */
+.lang-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(184, 134, 11, 0.05);
+}
 
-/* MOBILE OPTIMIZATION */
-@media (max-width: 768px) {
-
-    /* Navbar Upgrade: Compact Layout */
-    .navbar {
-        height: auto;
-        padding: 0.5rem 1rem;
-        flex-direction: column-reverse;
-        /* Controls on Top, Links below */
-        align-items: flex-end;
-        /* Align controls to right */
-        gap: 0.25rem;
-
-        /* SAFETY: Prevent stacking off-screen */
-        max-height: 90vh;
-        /* Never taller than screen */
-        overflow-y: auto;
-        /* Scroll if needed */
-    }
-
-    .nav-link {
-        font-size: 0.8rem;
-        /* Smaller mobile links */
-        padding: 0.15rem 0;
-        /* Tighter spacing */
-        display: block;
-        text-align: right;
-    }
+.lang-btn.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+    box-shadow: 0 2px 10px rgba(184, 134, 11, 0.3);
 }
 
 .nav-link::after {
@@ -186,34 +164,6 @@ h5 {
     gap: 0.5rem;
 }
 
-/* Premium Language Buttons */
-.lang-btn {
-    background: transparent;
-    border: 1px solid var(--border-color);
-    padding: 6px 12px;
-    cursor: pointer;
-    font-family: var(--font-body);
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
-    border-radius: 20px;
-    /* Pill shape */
-    color: var(--text-secondary);
-}
-
-.lang-btn:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-    background: rgba(184, 134, 11, 0.05);
-}
-
-.lang-btn.active {
-    background: var(--accent);
-    border-color: var(--accent);
-    color: #fff;
-    box-shadow: 0 2px 10px rgba(184, 134, 11, 0.3);
-}
 
 /* Container */
 .container {
@@ -935,12 +885,13 @@ h5 {
     mix-blend-mode: multiply;
 }
 
+/* ========================================= */
 /* MOBILE & TABLET OPTIMIZATION */
+/* ========================================= */
 /* Combined rule to ensure navigation never breaks on intermediate screens */
 @media (max-width: 1024px) {
 
-
-    /* Navbar Upgrade: Compact Layout */
+    /* Navbar: Compact Mobile Layout */
     .navbar {
         height: auto;
         padding: 0.5rem 1rem;
@@ -948,57 +899,89 @@ h5 {
         /* Controls on Top, Links below */
         align-items: flex-end;
         /* Align controls to right */
-        gap: 0.25rem;
-        /* Tighter gap */
+        gap: 0.5rem;
+        /* Increased for better spacing */
     }
 
+    /* Language Controls: Stay on Right */
     .nav-controls {
-        /* Keep controls on right */
         position: relative;
         right: auto;
         width: auto;
-        /* Shrink to fit */
         justify-content: flex-end;
         padding-bottom: 0;
         border-bottom: none;
     }
 
+    /* ⚠️ CRITICAL: Navigation Links - MUST BE VISIBLE */
+    /* DO NOT add display:none here - it causes invisible elements */
     .nav-links {
+        display: flex !important;
+        /* Force visibility - prevent future bugs */
+        visibility: visible !important;
+        /* Double protection */
         width: 100%;
         gap: 0;
-        /* Remove gap, use padding */
+        /* Remove gap, use padding inside links instead */
         flex-direction: column;
         /* Vertical stack */
         align-items: stretch;
-        /* Full width items */
-
-        /* Reset scroll properties */
+        /* Full width items for better touch targets */
         overflow-x: visible;
         white-space: normal;
         padding-top: 1rem;
+        padding-bottom: 0.5rem;
         justify-content: flex-start;
         height: auto;
     }
 
+    /* Hide scrollbar if any */
     .nav-links::-webkit-scrollbar {
         display: none;
     }
 
+    /* Individual Navigation Links */
     .nav-link {
         font-size: 1.1rem;
-        /* Larger font */
+        /* Larger, more readable font */
         padding: 1rem 0;
-        /* Larger touch area */
+        /* Minimum 44px touch target (Apple HIG) */
+        min-height: 44px;
+        /* iOS touch target guideline */
         display: block;
         text-align: right;
-        /* Text on right */
+        /* Align with language buttons */
         border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        /* Separator lines */
+        /* Visual separator */
+        transition: all 0.2s ease;
+    }
+
+    /* Remove underline animation on mobile - use background instead */
+    .nav-link::after {
+        display: none;
+    }
+
+    /* Better mobile hover/active states */
+    .nav-link:active {
+        background-color: rgba(184, 134, 11, 0.05);
     }
 
     /* Adjust content padding for taller mobile header */
     .page-hero,
     .brand-hero {
-        padding-top: 220px;
+        padding-top: 240px;
+        /* Increased to account for taller navbar */
+    }
+}
+
+/* Additional refinements for very small phones */
+@media (max-width: 480px) {
+    .nav-link {
+        font-size: 1rem;
+        padding: 0.9rem 0;
+    }
+
+    .navbar {
+        gap: 0.4rem;
     }
 }
