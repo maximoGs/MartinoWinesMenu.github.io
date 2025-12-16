@@ -69,13 +69,18 @@ h5 {
     align-items: center;
     padding: 0 5%;
     /* Fluid padding */
+    padding: 0 5%;
+    /* Fluid padding */
     z-index: 1000;
     transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+    /* Always show shadow for consistency */
 }
 
+/* Remove shrinking effect */
 .navbar.scrolled {
-    height: 70px;
-    box-shadow: var(--shadow-sm);
+    /* Height remains inherited/fixed */
+    /* Only ensure background is solid if transparent before? It's already solid/blur */
 }
 
 .nav-links {
