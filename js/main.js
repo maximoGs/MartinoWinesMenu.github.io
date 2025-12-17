@@ -543,7 +543,7 @@ document.addEventListener('DOMContentLoaded', () => {
             message += `\n*Total: $${total.toLocaleString('es-AR')}*`;
             if(notes && notes.trim() !== "") message += `\n\n*Notas:* ${notes}`;
             
-            const phoneNumber = "5492615555555"; 
+            const phoneNumber = "5492616119812"; 
             const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
             window.open(url, '_blank');
         });
